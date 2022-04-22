@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap");
+@import "@fancyapps/ui/dist/fancybox.css";
+@import url("https://unpkg.com/flexmasonry/dist/flexmasonry.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Kanit", sans-serif !important;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  bottom: 150px;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+}
+
+.shade {
+  opacity: 0;
+  background: rgba(8, 37, 13, 0.8);
+  z-index: 3;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
+.heroEffects {
+  transform: scale(1);
+}
+
+#mainCarousel {
+  color: #170724;
+  margin: 0 auto 1rem auto;
+
+  --carousel-button-bg: #fff;
+  --carousel-button-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+    0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+
+  --carousel-button-svg-width: 20px;
+  --carousel-button-svg-height: 20px;
+
+  --carousel-button-svg-stroke-width: 2.5;
+}
+
+@media only screen and (max-width: 640px) {
+  #mainCarousel .carousel__slide {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.ham {
+}
+.ham span {
+  display: block;
+  background: #fff;
+  width: 15px;
+  height: 2px;
+  border-radius: 3px;
+  transition: margin 0.25s 0.25s, transform 0.25s;
+}
+.ham .bar1 {
+  margin-bottom: 4px;
+}
+.ham .bar2 {
+}
+.ham .bar3 {
+  margin-top: 4px;
+}
+
+.ham.active span {
+  transition: margin 0.25s, transform 0.25s 0.25s;
+}
+
+.ham.active .bar1 {
+  margin-bottom: -4px;
+  transform: rotate(45deg);
+}
+.ham.active .bar2 {
+  visibility: hidden;
+}
+.ham.active .bar3 {
+  margin-top: 0px;
+  transform: rotate(135deg);
+}
+
+.roll {
+  animation: roll 6s;
+}
+@keyframes roll {
+  0% {
+    left: 0px;
+    -webkit-transform: rotate(-360deg);
+  }
+  50% {
+    left: 1000px;
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    left: 0px;
+    -webkit-transform: rotate(-360deg);
+  }
+}
