@@ -53,7 +53,7 @@ const NewsCarousel = () => {
   }
 
   useEffect(() => {
-    const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
+    const MainCarousel = new Carousel(document.querySelector("#MainCarousel"), {
       ScrollLock: false,
       Autoplay: {
         timeout: 1000,
@@ -64,7 +64,7 @@ const NewsCarousel = () => {
 
   return (
     <>
-      <div id="mainCarousel" className="carousel mb-4 w-full mx-auto">
+      <div id="MainCarousel" className="carousel mb-4 w-full mx-auto">
         <div className="carousel__viewport px-12">
           {news.map((item, index) => (
             <figure key={index} className="carousel__slide py-0 px-4 w-1/3">
