@@ -91,6 +91,9 @@ const images = [
 
 const Gallery = () => {
 
+    const router = useRouter();
+    const { locale } = router;
+
     useEffect(() => {
         FlexMasonry.init('.grid2', {
             responsive: true,
@@ -143,7 +146,9 @@ const Gallery = () => {
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
-                        <p className="text-3xl font-medium">Gallery</p>
+                        <p className="text-3xl font-medium md:hidden">
+                            {locale === "en" ? "Gallery" : "แกลอรี่"}
+                        </p>
                         <div className='overflow-hidden w-full relative my-10 '>
                             <div className="grid2">
                                 {images.map((item) => (

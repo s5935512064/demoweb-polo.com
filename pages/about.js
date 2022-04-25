@@ -5,9 +5,18 @@ import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import '@fancyapps/ui/dist/carousel.css';
+import en from '../locales/en'
+import th from '../locales/th'
 
 const About = () => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : th;
 
+    const changeLanguage = (e) => {
+        const locale = e.target.value;
+        router.push(router.pathname, router.asPath, { locale });
+    };
     return (
         <Layout>
             <Head>
@@ -20,118 +29,59 @@ const About = () => {
                     <div className="absolute -top-5 -left-8  hidden md:block z-10">
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
+                    <div className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
+                        <p className="text-3xl font-medium md:hidden">
+                            {locale === "en" ? "About us" : "เกี่ยวกับเรา"}
+                        </p>
+                        <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-3 p-5">
 
-                    <div className="mt-10 w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-3 p-5">
-                        <div className="text-center sm:text-right row-start-2 flex h-full items-center md:mx-10 ">
-                            Siam Sindhorn Co.,Ltd  Is The Developer at POLO Football Park project. There are 4 soccer fields with high quality artificial turf. The field dimensions are 25m. wide and 42m long. You can visit us by 2 ways from RAMA IV road or Wireless road.
+                            <div className=" md:mr-10">
+                                <img src={t.aboutus.image} alt="aboutus" className="h-full w-full object-contain object-center shadow-md rounded " />
+                            </div>
+                            <div className="flex h-full items-center md:mx-10 font-light text-base sm:text-lg">
+                                {t.aboutus.about}
+                            </div>
                         </div>
-                        <div className="row-start-1 sm:row-start-2 md:mr-10">
-                            <img src="https://polofootballpark.com//images/gallery/2a3edc4ed681a421c845f6f612906ee8__2630f05a48843b1e62afded3c01cd198-1458615947.jpg" alt="logo" className="h-full w-full object-contain object-center shadow-md " />
+
+                        <div className="mt-10 w-full h-full flex flex-col justify-center items-center">
+                            <p className="text-3xl font-medium mb-4">
+                                {locale === "en" ? "Facilities" : "สิ่งอำนวยความสะดวก"}
+                            </p>
+
+                            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 ">
+                                {t.aboutus.facilities.map((item, index) => (
+                                    <div key={index} className="h-48 shadow-sm flex flex-col" >
+                                        <img src={item.src} alt="facilities" className="h-28 object-contain object-top" />
+                                        <p className="text-center font-light text-sm sm:text-base">{item.description}</p>
+                                    </div>
+                                ))
+
+                                }
+
+                            </div>
                         </div>
-                    </div>
+                        <div className="mt-10 w-full h-full flex flex-col justify-center items-center mb-4">
+                            <p className="text-3xl font-medium ">
+                                {locale === "en" ? "Regulations" : "ระเบียบการใช้งานสนาม"}
+                            </p>
+                            <p className="w-full lg:w-1/2 text-center px-5 font-light mb-4">
+                                {locale === "en" ? "Im order to play football with fun. please follow our instructions as follows." : "เพื่อความเป็นระเบียบเรียบร้อยในสนาม ขอความร่วมมือจากผู้มาใช้บริการปฏิบัติตามกฎต่างๆ ดังต่อไปนี้"}
+                            </p>
 
-                    <div className="mt-10 w-full h-full flex flex-col justify-center items-center">
-                        <p className="text-3xl font-semibold">Facilities</p>
-                        <p className="w-full lg:w-1/2 text-center px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, laborum quo. Harum corporis laboriosam explicabo deserunt voluptates vitae, neque provident.</p>
-                        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 p-10 ">
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/1.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Soccer field for playing football.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/2.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">Rent for Soccer tournament or competition.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/10.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">Rent for Advertisement.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/3.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Rent for Events or Activities.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/4.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Referee.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/5.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Borrow football for playing.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/11.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Vest service a divided team.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/6.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Lockers and Towels.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/7.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">		Bathroom with soap & shampoo.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/8.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Food and Beverages.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/9.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">		Free Wi-fi.</p>
-                            </div>
+                            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 ">
+                                {t.aboutus.regulations.map((item, index) => (
+                                    <div key={index} className="max-h-72 shadow-sm flex flex-col p-2" >
+                                        <img src={item.src} alt="facilities" className="h-28 object-contain object-top" />
+                                        <p className="text-center font-light text-sm sm:text-base">{item.description}</p>
+                                    </div>
+                                ))
 
+                                }
+
+                            </div>
                         </div>
                     </div>
-                    <div className="mt-10 w-full h-full flex flex-col justify-center items-center">
-                        <p className="text-3xl font-semibold">Regulations</p>
-                        <p className="w-full lg:w-1/2 text-center px-5">Im order to play football with fun. please follow our instructions as follows.</p>
-                        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 p-10 ">
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r1.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">Keep all area clean.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r2.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!. metal stud or high heel shoes.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r3.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">Dress sportswear properly.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r4.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!.Smoking in the soccer pitch.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r5.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!. Quarrel.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r6.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">Im case of quarrel., POLO Football Park has the right to stop playing football immediately.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r7.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!. Guns or Arms.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r8.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	No!. Drugs.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r9.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!. Animals.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r10.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">No!. Gambling.</p>
-                            </div>
-                            <div className="h-48 shadow-sm flex flex-col justify-center">
-                                <img src="https://polofootballpark.com/images/icon/r11.png" alt="facilities" className="h-2/3 object-contain object-center" />
-                                <p className="text-center">	Please keep your belongings carefully. POLO Football Park has no responsibility for your loss.</p>
-                            </div>
 
-                        </div>
-                    </div>
 
                 </div>
 

@@ -4,9 +4,23 @@ import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCar, faTrain } from '@fortawesome/free-solid-svg-icons'
+import { faCar, faTrain, faLocationDot, faPhone, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faInstagram, faLine } from '@fortawesome/free-brands-svg-icons'
+import en from '../locales/en'
+import th from '../locales/th'
 
 const Contact = () => {
+
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : th;
+
+    const changeLanguage = (e) => {
+        const locale = e.target.value;
+        router.push(router.pathname, router.asPath, { locale });
+    };
+
+
     return (
         <Layout>
             <Head>
@@ -23,47 +37,49 @@ const Contact = () => {
                     </div>
                     {/* Heading */}
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
-                        <p className="text-3xl font-medium">Contact</p>
-                        <p>Get in touch with us!</p>
+                        <div className="md:hidden text-center">
+
+                            <p className="text-3xl font-medium"> Contact</p>
+                            <p>Get in touch with us!</p>
+                        </div>
 
 
                         <div className="py-10 grid grid-cols-1 md:grid-cols-6 gap-3 w-full  ">
-                            <div className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-span-2 min-h-[150px]">
 
-                                <FontAwesomeIcon icon={faCar} className="w-16 h-16 " />
-                                <div className="col-span-2 md:col-span-1">
+                            {t.contact.directionByCar
+                                .map((item, index) => (
+                                    <div key={index} className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-span-2 min-h-[150px]">
+                                        <FontAwesomeIcon icon={faCar} className="w-16 h-16 " />
+                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light">
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                ))
+                            }
 
-                                    จาก สวนลุมพินี ถนนพระราม 4 ข้ามสะพาน ไทยเบลเยียม เมื่อลงสะพานชิดซ้ายประมาณ 200 เมตร เลี้ยวซ้ายเข้าซอยปลูกจิต ตรงไปตามทางจนเจอสี่แยก เลี้ยวซ้าย ตรงเข้าไป สนามฟุตบอลจะอยู่ทางขวามือ
-                                </div>
-                            </div>
-                            <div className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-span-2 min-h-[150px]">
-                                <FontAwesomeIcon icon={faCar} className="w-16 h-16 " />
-                                <div className="col-span-2 md:col-span-1">
+                            {t.contact.directionByMRT
+                                .map((item, index) => (
+                                    <div key={index} className="grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-2 md:col-span-2 min-h-[150px]">
+                                        <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
+                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light ">
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                ))
+                            }
 
-                                    จาก สี่แยกเพลินจิต ตรงเข้ามามุ่งหน้ามาทางสวนลุมพินี ผ่าน สามแยกถนนวิทยุตัดถนนสารสิน แล้ววิ่งชิดเลนซ้าย ประมาณ 200 เมตร วิ่งตรงเข้ามาจะเห็น RBSC Polo Club เลี้ยวซ้ายตามแนวกำแพง เจอสามแยกเลี้ยวขวา จากนั้นตรงไปสนามฟุตบอลจะอยู่ทางซ้ายมือ
-                                </div>
-                            </div>
-                            <div className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-span-2 min-h-[150px]">
-                                <FontAwesomeIcon icon={faCar} className="w-16 h-16 " />
-                                <div className="col-span-2 md:col-span-1">
+                            {t.contact.directionByBTS
+                                .map((item, index) => (
+                                    <div key={index} className="grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-4 md:col-span-2 min-h-[150px]">
+                                        <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
+                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light">
+                                            {item.description}
+                                        </div>
+                                    </div>
+                                ))
+                            }
 
-                                    จาก เซ็นทรัลชิดลม ตรงเข้ามาผ่านถนนหลังสวน เจอสามแยก เลี้ยวซ้าย วิ่งตรงเข้ามา จนเจอสามแยก เลี้ยวขวาเข้าถนนวิทยุ วิ่งชิดเลนซ้าย ประมาณ 200 เมตร วิ่งตรงเข้ามาจะเห็น RBSC Polo Club เลี้ยวซ้ายตามแนวกำแพง เจอสามแยกเลี้ยวขวา จากนั้นตรงไปสนามฟุตบอลจะอยู่ทางซ้ายมือ
-                                </div>
-                            </div>
-                            <div className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-2 md:col-span-2 min-h-[150px]">
-                                <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
-                                <div className="col-span-2 md:col-span-1">
 
-                                    ลงสถานีรถไฟฟ้าใต้ดินสถานีลุมพินี มุ่งหน้าไปยังทางออกที่ 3 ถนนวิทยุ เรียกมอเตอร์ไซด์รับจ้าง หรือ รถแท็กซี่ ให้มาส่งที่สนามฟุตบอล
-                                </div>
-                            </div>
-                            <div className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-4 md:col-span-2 min-h-[150px]">
-                                <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
-                                <div className="col-span-2 md:col-span-1">
-
-                                    ลงสถานีเพลิตจิต สามารถออกได้ที่ ทางออก 2 อาคารปาร์คเวนเจอร์ หรือ ทางออก 4 ฝั่งโนโวเทล ซอยร่วมฤดี เรียกมอเตอร์ไซด์รับจ้าง หรือ รถแท็กซี่ ให้มาส่งที่สนามฟุตบอล
-                                </div>
-                            </div>
 
                         </div>
 
@@ -94,22 +110,39 @@ const Contact = () => {
                     </section>
 
                     {/* Company */}
-                    <section className="w-full h-full px-10">
+                    <section className="w-full h-full px-4 lg:px-10">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                             <div className="w-full h-full  relative overflow-hidden">
                                 <img src="/assets/polo_map.png" alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-100 " />
                             </div>
                             <div className="flex h-full w-full  justify-center flex-col ">
-                                <p> บริษัท สยามสินธร จำกัด</p>
-                                <p>130-132 อาคารสินธร ทาวเวอร์ 1 ชั้น 4 ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ 10330</p>
-                                <p>จองสนาม : 08-7070-8833</p>
-                                <p>จองอีเว้นท์ : 092-270-0241</p>
-                                <p>02-263-2525</p>
-                                <p>info@polofootballpark.com</p>
-                                <p>www.polofootballpark.com</p>
-                                <p>PoloFootballPark</p>
-                                <p>polo_football_park</p>
-                                <p>Line@</p>
+
+                                <p className="text-xl"> {t.contact.companyName} </p>
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
+                                    <FontAwesomeIcon icon={faLocationDot} className="w-8 h-8 mr-4" />
+                                    {t.contact.companyAddress}</p>
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
+                                    <FontAwesomeIcon icon={faPhone} className="w-8 h-8 mr-4" />
+                                    {t.contact.companyPhone}</p>
+
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
+                                    <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-4" />
+                                    {t.contact.companyEmail}</p>
+
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                    <FontAwesomeIcon icon={faGlobe} className="w-5 h-5 mr-4" />
+                                    {t.contact.companySite}</p>
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                    <FontAwesomeIcon icon={faFacebook} className="w-5 h-5 mr-4" />
+                                    {t.contact.companyfacebook}</p>
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                    <FontAwesomeIcon icon={faInstagram} className="w-5 h-5 mr-4" />
+                                    {t.contact.companyIg}</p>
+                                <p className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                    <FontAwesomeIcon icon={faLine} className="w-5 h-5 mr-4" />
+                                    {t.contact.companyLine}</p>
+
+
                             </div>
 
                         </div>

@@ -1,31 +1,32 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Link from 'next/link';
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import $ from 'jquery';
+import $ from "jquery";
 import NewsCarousel from "../components/NewsCarousel";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faLine } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faLine } from "@fortawesome/free-brands-svg-icons";
 
-
-export default class Home extends React.Component {
+class Navopen extends React.Component {
   componentDidMount() {
     (function () {
       $(window).scroll(function () {
         var Num = $(window).scrollTop() / 500;
-        var Num2 = $(window).scrollTop() * .0004; // higher number for more zoom
+        var Num2 = $(window).scrollTop() * 0.0004; // higher number for more zoom
         var Num2mod = Num2 + 1;
-        var Num3 = $(window).scrollTop() * .2; // Title speed
+        var Num3 = $(window).scrollTop() * 0.2; // Title speed
         var Num3mod = Num3 + 1;
-        return $('.shade').css('opacity', Num),
-          $(".heroEffects").css({ "transform": "scale(" + Num2mod + ")" })
+        return (
+          $(".shade").css("opacity", Num),
+          $(".heroEffects").css({ transform: "scale(" + Num2mod + ")" })
+        );
       });
     }.call(this));
   }
-
   render() {
-
+    const { route } = this.props;
+    const { locale } = route;
     return (
       <Layout>
         <Head>
@@ -34,83 +35,138 @@ export default class Home extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-
         <section className="min-h-screen w-full h-full relative  overflow-hidden top-0 left-0">
           <div className="heroEffects bg-[url('/assets/hero.jpg')] bg-cover bg-center fixed min-h-screen w-full h-full">
             <div className="bg-gradient-to-r from-[#08250D] absolute w-full h-full opacity-75" />
             <div className="w-full h-full flex justify-center absolute">
               <div className="max-w-7xl px-4 w-full h-full flex flex-col text-white pt-48 gap-5 z-30 ">
-                <p className="text-5xl">The Best Soccer Field in CBD</p>
-                <p className="text-xl">Indoor Soccer Field Turf,
-                  In the Central Business District,(CBD)<br></br>
-                  Conveniently access from Wireless Road or Rama IV Road.</p>
-                <div className="space-x-5">
+                <p
+                  data-aos="fade-left"
+                  data-aos-delay="100"
+                  data-aos-duration="2000"
+                  className="text-5xl font-medium"
+                >
+                  {locale === "en"
+                    ? "The Best Soccer Field in CBD"
+                    : "สนามหญ้าเทียมย่านใจกลางธุรกิจ"}
+                </p>
+                <p
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                  data-aos-duration="2000"
+                  className="text-xl whitespace-pre-line font-light"
+                >
+                  {locale === "en"
+                    ? " Indoor Soccer Field Turf,In the Central Business District,(CBD) \n Conveniently access from Wireless Road or Rama IV Road."
+                    : "สนามฟุตบอลในร่มหญ้าเทียมแห่งแรกในย่านธุรกิจใจกลางเมืองเดินทางสะดวก\nเข้าออกได้จากซอยโปโลด้านถนนวิทยุ หรือ ซอยปลูกจิต ถนนพระรามสี่"}
+                </p>
+                <div className="inline-flex gap-3 flex-col sm:flex-row">
                   <Link href="https://www.facebook.com/PoloFootballPark">
-                    <button className="bg-[#D90A0C] text-white p-3 w-48 inline-flex items-center justify-center">
-                      <FontAwesomeIcon icon={faFacebook} className="w-5 h-5 mr-2 -ml-1" />Join our club</button>
+                    <button
+                      data-aos="fade-left"
+                      data-aos-delay="300"
+                      data-aos-duration="2000"
+                      className="bg-[#D90A0C] text-white p-3 w-48 inline-flex items-center justify-center"
+                    >
+                      <FontAwesomeIcon
+                        icon={faFacebook}
+                        className="w-5 h-5 mr-2 -ml-1"
+                      />
+                      {locale === "en"
+                        ? "Join our club"
+                        : "เป็นส่วนหนึ่งกับเรา"}
+                    </button>
                   </Link>
-                  <button className="bg-[#176724] text-white p-3 w-48 inline-flex items-center justify-center">
-                    <FontAwesomeIcon icon={faLine} className="w-5 h-5 mr-2 -ml-1" />
-                    Add Friend</button>
+                  <Link href="https://page.line.me/ewb3453i?openQrModal=true">
+                    <button
+                      data-aos="fade-left"
+                      data-aos-delay="300"
+                      data-aos-duration="2000"
+                      className="bg-[#176724] text-white p-3 w-48 inline-flex items-center justify-center"
+                    >
+                      <FontAwesomeIcon
+                        icon={faLine}
+                        className="w-5 h-5 mr-2 -ml-1"
+                      />
+                      {locale === "en" ? "Add Friend" : "เพิ่มเพื่อน"}
+                    </button>
+                  </Link>
                 </div>
                 <div className="arrow animate-bounce">
                   <svg height="25" width="50">
-                    <polygon points="0,0 25,10 50,0 25,25" fill="rgba(255,255,255)" strokeWidth="0" stroke="rgba(255,255,255,.3)" />
+                    <polygon
+                      points="0,0 25,10 50,0 25,25"
+                      fill="rgba(255,255,255)"
+                      strokeWidth="0"
+                      stroke="rgba(255,255,255,.3)"
+                    />
                   </svg>
                 </div>
               </div>
             </div>
             <div className="shade "></div>
           </div>
-
         </section>
 
         <section className="h-full w-full  flex justify-center relative bg-[url('/assets/wepik-2022321-93143.png')] bg-fixed bg-cover  ">
           <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]"></div>
           <div className="w-full  bg-white rounded-t-2xl  max-w-7xl  mt-10 px-10 pt-10 relative ">
             <div className="flex w-full justify-between mb-5 border-b-[1px] border-black pb-2">
-
-              <p className="text-2xl font-medium">News&Event</p>
-              <button className="w-48 p-2 border-[1px] border-black">SEE ALL</button>
+              <p className="text-2xl font-medium">
+                {locale === "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
+              </p>
+              <button className="w-48 p-2 border-[1px] border-black">
+                SEE ALL
+              </button>
             </div>
             <NewsCarousel />
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 items-center mt-10 mb-5 " >
-              <div className="flex flex-col gap-2">
 
-                <p className="text-3xl font-semibold">About us</p>
-                Siam Sindhorn Co.,Ltd  Is The Developer at POLO Football Park project. There are 4 soccer fields with high quality artificial turf. The field dimensions are 25m. wide and 42m long. You can visit us by 2 ways from RAMA IV road or Wireless road.
-                <button className="w-36 p-2 border-2 border-black">Discover</button>
-              </div>
-              <div>
-                <img src="/assets/2a3edc4ed681a421c845f6f612906ee8__2630f05a48843b1e62afded3c01cd198-1458615947.jpg" alt="about" className="w-full h-full object-cover" />
-              </div>
+            <div className="flex w-full justify-center">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPoloFootballPark%2F&tabs&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2209726886023849"
+                width="500"
+                height="100%"
+                style={{ border: "none", overflow: "hidden" }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              ></iframe>
             </div>
 
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 items-center" >
-              <div>
-                <img src="/assets/2a3edc4ed681a421c845f6f612906ee8__2630f05a48843b1e62afded3c01cd198-1458615947.jpg" alt="about" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex flex-col gap-2 items-end">
-
-                <p className="text-3xl font-semibold text-right">About us</p>
-                <p className="text-right"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id blanditiis qui aspernatur consectetur minima molestiae a sequi repellendus. Quibusdam aut possimus deleniti deserunt harum exercitationem voluptas qui aperiam iste illum.</p>
-
-                <button className="w-36 p-2 border-2 border-black ">Discover</button>
-              </div>
-
-            </div>
-
-            <div className="w-full grid justify-center gap-3 mt-2 items-center overflow-hidden grid-cols-2 md:flex">
-              <img src="/assets/256527691_3053998368171556_3431729866755465441_n.jpg" alt="eifel" className="w-36 h-full object-contain" />
-              <img src="/assets/10411216_346724552175077_6814677325905394699_n.jpg" alt="theold" className="w-36 h-full object-contain" />
-              <img src="/assets/d41d8cd98f00b204e9800998ecf8427e-23ceec17f930a8cca7514308ecf04b72-1458271414.jpg" alt="glass" className="w-36 h-full object-contain" />
-              <img src="/assets/download 11(1).png" alt="srijul" className="w-36 h-full  object-contain" />
+            <div className=" w-full grid justify-items-center justify-center gap-3 mt-2 items-center overflow-hidden grid-cols-2 md:flex">
+              <img
+                src="/assets/256527691_3053998368171556_3431729866755465441_n.jpg"
+                alt="eifel"
+                className="w-36 h-full object-contain"
+              />
+              <img
+                src="/assets/10411216_346724552175077_6814677325905394699_n.jpg"
+                alt="theold"
+                className="w-36 h-full object-contain"
+              />
+              <img
+                src="/assets/d41d8cd98f00b204e9800998ecf8427e-23ceec17f930a8cca7514308ecf04b72-1458271414.jpg"
+                alt="glass"
+                className="w-36 h-full object-contain"
+              />
+              <img
+                src="/assets/download 11(1).png"
+                alt="srijul"
+                className="w-36 h-full  object-contain"
+              />
             </div>
           </div>
         </section>
-
       </Layout>
     );
   }
-
 }
+
+const Home = (props) => {
+  const router = useRouter();
+
+  return <Navopen {...props} route={router} />;
+};
+
+export default Home;

@@ -4,8 +4,44 @@ import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import '@fancyapps/ui/dist/carousel.css';
+import axios from "axios";
+import useSWR, { mutate } from "swr";
+import moment from 'moment'
+import 'moment/locale/th';
+
+moment.locale('th');
+
+const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=full_picture,permalink_url,message,created_time&limit=15&access_token=EAAooxZBZBd3LcBAPdOHKvdEET61eDH1ah8mBVnXLJhaoIYBwGUKUimZBi7eZBZBbvyjjLa5tzprhTTU8ZCiRkEYY1D2qtY5mL6sVWpKrZAUVrNZAxRfXAZC5S1u6miEzMgzfcWYjmehEjQxD66m9BE1ar4OOnebhFMzAAS4OECCjQko5vZAIxkCFxJ6ZBjOOu18htJWjBb4VZAKYXgZDZD&format=json`;
+
+const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const News = () => {
+
+    const { data, error } = useSWR(URL, fetcher);
+    if (!data) {
+        return (
+            <div className="h-screen w-full flex items-center text-white flex-col bg-[#08250D] justify-center">
+                <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
+                Loading ...</div>
+        )
+    }
+
+    const ConditionalMessage = ({ data }) => {
+        if (!data) {
+
+            return (
+                <p className="font-light text-base"> {data} </p>
+            )
+        }
+        else {
+
+            return (
+                <p className="font-light text-base">  {data.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}  </p>
+            )
+
+        }
+
+    }
 
     return (
         <Layout>
@@ -20,91 +56,119 @@ const News = () => {
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
-                        <p className="text-3xl font-medium">News&Event</p>
+                        <p className="md:hidden text-3xl font-medium">News&Event</p>
                         {/* Highlight */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
-                            <div className="sm:row-span-2 w-full h-full bg-black sm:col-span-2">
-                                <img src="https://polofootballpark.com//images/gallery/756bdad4eca19d3c2db070078fa7602a_80676db8f32b521cf13f39219b9f6581-1458615514.jpg" alt="feed1" className="object-cover w-full h-full" />
-                            </div>
-                            <div>
-                                <img src="https://polofootballpark.com//images/gallery/756bdad4eca19d3c2db070078fa7602a_80676db8f32b521cf13f39219b9f6581-1458615514.jpg" alt="feed4" className="object-cover w-full h-full" />
-                            </div>
-                            <div>
-                                <img src="https://polofootballpark.com//images/gallery/756bdad4eca19d3c2db070078fa7602a_80676db8f32b521cf13f39219b9f6581-1458615514.jpg" alt="feed3" className="object-cover w-full h-full" />
-                            </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
+                            {data.data
+                                .filter((p, index) => index == 0)
+                                .map((item, index) =>
+                                    <div key={index} className="max-h-[300px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0">
+                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
+
+
+                                            <ConditionalMessage data={item.message} />
+
+
+
+                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
+
+                                                <Link href={item.permalink_url}>
+                                                    <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <img src={item.full_picture} alt="feed1" className="object-cover w-full h-full object-top" />
+                                    </div>
+
+                                )}
+
+                            {data.data
+                                .filter((p, index) => index == 1)
+                                .map((item, index) =>
+                                    <div key={index} className="max-h-[300px] w-full h-full relative">
+
+                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
+                                            <p className="font-light hidden xs:block text-base">
+
+                                                {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}
+                                            </p>
+
+
+                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
+
+                                                <Link href={item.permalink_url}>
+                                                    <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+
+                                        <img src={item.full_picture} alt="feed4" className="object-cover w-full h-full object-top " />
+                                    </div>
+                                )}
+
+                            {data.data
+                                .filter((p, index) => index == 2)
+                                .map((item, index) =>
+                                    <div key={index} className="max-h-[300px] w-full h-full relative">
+                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
+                                            <p className="font-light hidden xs:block text-base">
+
+                                                {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}
+                                            </p>
+
+
+                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
+
+                                                <Link href={item.permalink_url}>
+                                                    <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <img src={item.full_picture} alt="feed3" className="object-cover w-full h-full object-top" />
+                                    </div>
+                                )}
+
+
                         </div>
 
                         {/* News from facebook */}
                         <div className="my-10 w-full h-full ">
-                            <p className="text-2xl font-medium">Hot</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-                                <div className=" grid grid-cols-1 sm:grid-cols-3 shadow-sm  sm:h-[200px] h-full">
-                                    <div className="w-full h-full overflow-hidden">
-                                        <img src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t39.30808-6/277749427_371398074993076_8684052199350618991_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_ohc=wcaD01H09WcAX_BG1vC&_nc_ht=scontent.fbkk14-1.fna&oh=00_AT9UzCYMwW-Us3y1cE7xyQTbH2lpKxa3x-9cCFS2AOzMHg&oe=62666307" alt="facebook" className="object-cover object-center w-full h-full max-h-96" />
-                                    </div>
-                                    <div className="sm:col-span-2 px-5 h-full flex flex-col justify-center ">
+                            <p className="text-2xl font-medium mb-2">Hot</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ">
+                                {data.data
 
-                                        โปรพิเศษสำหรับ นักเรียน / นักศึกษา มาแล้วคร้า..รีบมากันนะคะ
-                                        <div>
+                                    .map((item, index) => (
 
-                                            <button className="">Read more</button>
-                                        </div>
-                                        <div className="">
-                                            30 มีนาคม 2565
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" grid grid-cols-1 sm:grid-cols-3 shadow-sm  sm:max-h-[200px] h-full">
-                                    <div className="w-full h-full overflow-hidden">
-                                        <img src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t39.30808-6/276214834_7465462490145705_8714022255787854411_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=NH3cmvqlri4AX_o6Tph&_nc_ht=scontent.fbkk14-1.fna&oh=00_AT_63C77hO-tWkMBMIV-wCbNH5t-y6sY6eSj3-KQn9bw7w&oe=6266D384" alt="facebook" className="object-cover w-full h-full object-center max-h-96" />
-                                    </div>
-                                    <div className="sm:col-span-2 px-5 h-full flex flex-col justify-center ">
+                                        <div key={index} className="grid grid-cols-1 lg:grid-cols-3 shadow-sm  lg:h-[200px] h-full">
+                                            <div className="w-full h-full overflow-hidden">
+                                                <img src={item.full_picture} alt="facebook" className="object-cover object-top w-full h-full max-h-96 sm:max-h-52 md:max-h-72" />
+                                            </div>
+                                            <div className="sm:col-span-2 p-5 h-full flex flex-col justify-center ">
 
-                                        ⚽️ Sunday Morning Training! ⚽️
-                                        9:00-10:00@Polo Football Park
-                                        Our new Sunday morning sessions are great fun for all ages
-                                        <div>
+                                                <ConditionalMessage data={item.message} />
 
-                                            <button className="">Read more</button>
-                                        </div>
-                                        <div className="">
-                                            30 มีนาคม 2565
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" grid grid-cols-1 sm:grid-cols-3 shadow-sm  sm:max-h-[200px] h-full">
-                                    <div className="w-full h-full overflow-hidden">
-                                        <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t39.30808-6/275054434_351085487024335_8624707730743307175_n.jpg?stp=dst-jpg_p180x540&_nc_cat=109&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=GY80WRKlisUAX8SMVO_&_nc_ht=scontent.fbkk10-1.fna&oh=00_AT-dLDeXL803hlgWpbjNsHOvgpLzYZ_piseRwd-bmz_lkA&oe=6267B04E" alt="facebook" className="object-cover w-full h-full object-center max-h-96" />
-                                    </div>
-                                    <div className="sm:col-span-2 px-5 h-full flex flex-col justify-center">
+                                                <div className=" font-light text-base flex justify-between  mt-2 items-center">
+                                                    <p className="bg-black text-white px-2 bg-opacity-50">
 
-                                        ถามหากันเยอะ..มาแล้วคร้าาา..โปรโมชั่น..เดือนนี้นะคะ
-                                        <div>
 
-                                            <button className="">Read more</button>
-                                        </div>
-                                        <div className="">
-                                            30 มีนาคม 2565
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" grid grid-cols-1 sm:grid-cols-3 shadow-sm  sm:max-h-[200px] h-full">
-                                    <div className="w-full h-full overflow-hidden">
-                                        <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t39.30808-6/271736384_5307191989310888_6530339966365474160_n.jpg?stp=dst-jpg_s640x640&_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=qLOvVwEgcosAX86DOUu&_nc_ht=scontent.fbkk10-1.fna&oh=00_AT_sJkLDQVFvM09RXcXVikRe3QyhqZTPTTH73qAbn_rVGg&oe=626724E7" alt="facebook" className="object-cover w-full h-full object-center max-h-96" />
-                                    </div>
-                                    <div className="sm:col-span-2 px-5 h-full flex flex-col justify-center ">
+                                                        {moment(item.created_time).format('LL')}
+                                                    </p>
 
-                                        ⚽️อุปกรณ์พร้อมมาเล่นฟุตบอลกันค่ะ⚽️⚽️สนใจจองประจำ ⚽️
-                                        สอบถามละเอียดเพิ่มเติ่มได้ที่☎️☎️ 087-0708833 , 092-2700241
-                                        <div>
+                                                    <Link href={item.permalink_url}>
 
-                                            <button className="">Read more</button>
+                                                        <button className="w-fit border-2 border-black px-2">อ่านเพิ่มเติม</button>
+                                                    </Link>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
-                                        <div className="">
-                                            30 มีนาคม 2565
-                                        </div>
-                                    </div>
-                                </div>
+                                    ))}
+
+
+
+
 
                             </div>
                         </div>
@@ -114,8 +178,8 @@ const News = () => {
 
 
 
-            </div>
-        </Layout>
+            </div >
+        </Layout >
     );
 }
 

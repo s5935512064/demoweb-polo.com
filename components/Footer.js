@@ -6,7 +6,7 @@ const Footer = () => {
                     <div className='w-full relative  mx-4 md:mx-8 h-full flex flex-col  items-center  py-2 '>
                         <div className="py-4 w-full  flex flex-col sm:flex-row md:items-center gap-2 ">
 
-                            <p className='text-white text-xs sm:text-sm  '>
+                            <p className='text-white text-xs sm:text-sm font-light  '>
                                 More ways to contact us
                             </p>
                             <div className="flex items-center gap-1  ">
@@ -41,10 +41,10 @@ const Footer = () => {
 
                         </div>
                         <div className="border-t-[1px] border-white w-full py-2 flex justify-between">
-                            <p className='text-white text-xs sm:text-sm '>
+                            <p className='text-white text-xs sm:text-sm font-light'>
                                 Copyright © 2022 Siam Sindhorn Co., Ltd. All rights reserved.
                             </p>
-                            <p className="text-white text-xs sm:text-sm  text-right ">
+                            <p className="text-white text-xs sm:text-sm  text-right font-light ">
                                 Privacy Policy
                             </p>
                         </div>

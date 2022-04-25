@@ -1,47 +1,80 @@
 import React, { useState, useEffect } from "react";
-import { Carousel } from '@fancyapps/ui';
-import { Autoplay } from "@fancyapps/ui/dist/carousel.autoplay.esm.js";
-Carousel.Plugins.Autoplay = Autoplay;
+import axios from "axios";
+import useSWR, { mutate } from "swr";
+import moment from "moment";
+import "moment/locale/th";
 
+import { Carousel } from "@fancyapps/ui";
+import { Autoplay } from "@fancyapps/ui/dist/carousel.autoplay.esm.js";
+
+Carousel.Plugins.Autoplay = Autoplay;
+moment.locale("th");
+
+const URL2 = "https://polomanage.ssdapp.net/booking_status.php?date=2022-04-22";
+
+const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=full_picture,permalink_url,message,created_time&limit=15&access_token=EAAooxZBZBd3LcBAPdOHKvdEET61eDH1ah8mBVnXLJhaoIYBwGUKUimZBi7eZBZBbvyjjLa5tzprhTTU8ZCiRkEYY1D2qtY5mL6sVWpKrZAUVrNZAxRfXAZC5S1u6miEzMgzfcWYjmehEjQxD66m9BE1ar4OOnebhFMzAAS4OECCjQko5vZAIxkCFxJ6ZBjOOu18htJWjBb4VZAKYXgZDZD&format=json`;
+
+const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const NewsCarousel = () => {
+  //   const [news, setNews] = useState([]);
+  //   const getNews = async (e) => {
+  //     const res = await axios.get(URL).then((response) => {
+  //       if (!response) {
+  //         return <div> Loding ...</div>;
+  //       }
+  //       setNews(response.data.data);
+  //     });
+  //   };
 
-    useEffect(() => {
-        const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
-            ScrollLock: false,
-            Autoplay: {
-                timeout: 1000,
-                hoverPause: true
-            },
-        });
-    }, []);
+  //   useEffect(() => {
+  //     getNews();
+  //   }, []);
 
-    return (
-        <>
-            <div id="mainCarousel" className="carousel mb-4 w-full mx-auto">
-                <div className="carousel__slide w-72 h-72 md:h-96 bg-red-400 ">
+  //   const FilterNews = ({ data }) => {
+  //     if (!data.message) {
+  //       return;
+  //     } else {
+  //       return (
+  //         <div className="carousel mb-6 max-w-6xl mx-auto bg-gray-50 py-10">
+  //           <img
+  //             src={data.full_picture}
+  //             alt="news"
+  //             className="object-cover w-full h-full"
+  //           />
+  //         </div>
+  //       );
+  //     }
+  //   };
 
-                </div>
-                <div className="carousel__slide w-72 h-72 md:h-96  ">
+  const { data, error } = useSWR(URL, fetcher);
+  if (!data) {
+    return <div> Loading ..</div>;
+  }
 
-                </div>
-                <div className="carousel__slide w-72 h-72 md:h-96  ">
+  useEffect(() => {
+    const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
+      ScrollLock: false,
+      Autoplay: {
+        timeout: 1000,
+        hoverPause: true,
+      },
+    });
+  }, []);
 
-                </div>
-                <div className="carousel__slide w-72 h-72 md:h-96  ">
-
-                </div>
-                <div className="carousel__slide w-72 h-72 md:h-96  ">
-
-                </div>
-                {/* <div className="carousel__slide w-72 h-72 md:h-96 overflow-hidden">
-                    <img data-lazy-src="/assets/25a6377024da56275cdbf402880cb7df_60cb592d503411e03d8f618aa18c56a6-1464256224.jpg" className="object-cover w-full h-full" alt="news5" />
-                </div> */}
-            </div>
-
-
-        </>
-    );
-}
+  return (
+    <>
+      <div id="mainCarousel" className="carousel mb-4 w-full mx-auto">
+        <div className="carousel__viewport px-12">
+          {news.map((item, index) => (
+            <figure key={index} className="carousel__slide py-0 px-4 w-1/3">
+              <img className="mb-4 w-full rounded-lg" src={item.full_picture} />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default NewsCarousel;

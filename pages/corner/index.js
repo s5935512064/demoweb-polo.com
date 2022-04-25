@@ -5,8 +5,19 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import '@fancyapps/ui/dist/carousel.css';
 
-const Corner = () => {
+import en from '../../locales/en'
+import th from '../../locales/th'
 
+
+const Corner = () => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : th;
+
+    const changeLanguage = (e) => {
+        const locale = e.target.value;
+        router.push(router.pathname, router.asPath, { locale });
+    };
     return (
         <Layout>
             <Head>
@@ -20,45 +31,31 @@ const Corner = () => {
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
-                        <p className="text-3xl font-medium">Polo Corner</p>
+                        <p className="text-3xl font-medium md:hidden">Polo Corner</p>
 
                         <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 w-full my-10">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 justify-items-center w-full">
-                                <div className=" w-full">
-                                    <img src="https://polofootballpark.com/images/post/e7d053b893d547383895457cf582579f-1463371734.jpg" alt="xxxx" className="object-cover w-full h-full" />
-                                </div>
-                                <div className=" w-full gap-2 flex flex-col ">
-                                    <p className="font-semibold text-xl">Lorem ipsum dolor sit amet.<br></br>
-                                        <span className="text-base text-slate-400 font-normal">10 April 2022</span>
-                                    </p>
-                                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem harum soluta eum similique perspiciatis repellat fugit </p>
-                                    <Link href="/corner/1">
+                            {t.corner.map((item, index) => (
+                                <div key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-3 justify-items-center w-full">
+                                    <div className=" w-full">
+                                        <img src={item.img} alt="profile" className="object-cover w-full h-full" />
+                                    </div>
+                                    <div className=" w-full gap-1 flex flex-col ">
 
-                                        <button className="border-black border-2 p-1 w-fit">
-                                            Read more
-                                        </button>
-                                    </Link>
+                                        <p className="font-semibold text-xl"> {item.topic} </p>
+                                        <p className="text-base text-slate-400 font-light !m-0">{item.date}</p>
+                                        <p className="text-sm sm:text-base font-light"> {item.content.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')} </p>
 
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 justify-items-center w-full">
-                                <div className=" w-full">
-                                    <img src="https://polofootballpark.com/images/post/74eb2d59fda742e6dba6c570b8531e4b-1465548367.jpg" alt="xxxx" className="object-cover w-full h-full" />
-                                </div>
-                                <div className=" w-full gap-2 flex flex-col ">
-                                    <p className="font-semibold text-xl">Lorem ipsum dolor sit amet.<br></br>
-                                        <span className="text-base text-slate-400 font-normal">10 April 2022</span>
-                                    </p>
-                                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem harum soluta eum similique perspiciatis repellat fugit </p>
-                                    <Link href="/corner/2">
+                                        <Link href={item.slug}>
+                                            <button className="border-black border-2 px-2 w-fit font-light">
+                                                {locale === "en" ? "Read more" : "อ่านเพิ่มเติม"}
+                                            </button>
+                                        </Link>
 
-                                        <button className="border-black border-2 p-1 w-fit">
-                                            Read more
-                                        </button>
-                                    </Link>
-
+                                    </div>
                                 </div>
-                            </div>
+                            ))
+
+                            }
 
                         </div>
 
