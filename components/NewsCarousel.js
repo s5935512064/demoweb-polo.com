@@ -14,12 +14,12 @@ moment.locale("th");
 
 const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=id%2Cmessage%2Cmessage_tags%2Cfull_picture%2Cpermalink_url%2Ccreated_time&limit=15&access_token=EAAQUizb03jQBAPSiQVZBjgrhLbhTFiic5oSfMMZCyNLMEk7JSWB3hkztNwiEf4KgbTXdnv2ZACwdBskLRUwaDHebzdMwLW90WrPiJ4ZBR4fTt9CVcqoZAbV1thHge4J8MyIuAkHw7J4H02RP4X0RMF5Rpk76XdYYprgM7ZA9xpWZCevtqRZAlAPpbt4cWd3h78H8cEOyvU8NLPdaIG1ZAEXs80ZCEwz80OerwZD`;
 
-const fetcher = (url) => axios.get(url).then((res) => res.data);
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const NewsCarousel = () => {
   const [mounted, setMounted] = useState(false)
-  const { data, error } = useSWR(mounted ? URL : null, fetcher)
-  if (!data) {
+  const { data: result, error } = useSWR(mounted ? URL : null, fetcher)
+  if (!result) {
     return <div> Loding.. </div>
   }
 
