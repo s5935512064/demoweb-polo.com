@@ -134,7 +134,7 @@ const Contact = () => {
                     <section className="bg-white h-full w-full relative flex flex-col  justify-center items-center min-h-[400px] my-5 md:my-10">
                         <div className="relative w-full">
                             <div className="w-full absolute" onClick="style.pointerEvents='none'"></div>
-                            <iframe className="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.8083407369404!2d100.55049340299895!3d13.730050579570921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f21c794f57d%3A0x3a7266e4c23a8943!2sPolo+Football+Park!5e0!3m2!1sth!2sth!4v1458552948737" width="600" height="400" frameBorder="0" style={{ border: "0" }} allowFullscreen></iframe>
+                            <iframe className="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.8083407369404!2d100.55049340299895!3d13.730050579570921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f21c794f57d%3A0x3a7266e4c23a8943!2sPolo+Football+Park!5e0!3m2!1sth!2sth!4v1458552948737" width="600" height="400" frameBorder="0" style={{ border: "0" }} allowFullScreen></iframe>
                         </div>
 
 
