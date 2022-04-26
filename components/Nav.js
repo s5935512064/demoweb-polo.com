@@ -44,7 +44,7 @@ const Nav = () => {
           <div className="w-full hidden sm:flex items-center">
             <FontAwesomeIcon
               icon={faPhone}
-              className="text-white w-10 h-10 pr-4"
+              className="text-white w-12 h-12 mr-4 rotate-12"
             />
             <div className="flex-col">
               {locale === "en" ? "Reservation" : "จองสนาม"}
@@ -85,7 +85,7 @@ const Nav = () => {
       </div>
 
       <div className="h-12  bg-[#08250D] w-full  sticky top-24 inset-x-0  flex justify-center !z-10">
-        <div className="max-w-7xl px-4 w-full h-full flex items-center text-white md:justify-center ">
+        <div className="max-w-7xl mx-4 w-full h-full flex items-center text-white md:justify-center ">
           <div className="md:hidden flex items-center justify-items-start">
             <button
               id="hamburgerBtn"

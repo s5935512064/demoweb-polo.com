@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Link from "next/link";
+import Link2 from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import $ from "jquery";
 import NewsCarousel from "../components/NewsCarousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLine } from "@fortawesome/free-brands-svg-icons";
+import { Link, animateScroll as scroll } from 'react-scroll'
+
 
 class Navopen extends React.Component {
   componentDidMount() {
@@ -39,7 +41,7 @@ class Navopen extends React.Component {
           <div className="heroEffects bg-[url('/assets/hero.jpg')] bg-cover bg-center fixed min-h-screen w-full h-full">
             <div className="bg-gradient-to-r from-[#08250D] absolute w-full h-full opacity-75" />
             <div className="w-full h-full flex justify-center absolute">
-              <div className="max-w-7xl px-4 w-full h-full flex flex-col text-white pt-48 gap-5 z-30 ">
+              <div className="max-w-7xl px-4 w-full h-full flex flex-col text-white pt-28 sm:pt-52 gap-5 z-30 ">
                 <p
                   data-aos="fade-left"
                   data-aos-delay="100"
@@ -60,8 +62,8 @@ class Navopen extends React.Component {
                     ? " Indoor Soccer Field Turf,In the Central Business District,(CBD) \n Conveniently access from Wireless Road or Rama IV Road."
                     : "สนามฟุตบอลในร่มหญ้าเทียมแห่งแรกในย่านธุรกิจใจกลางเมืองเดินทางสะดวก\nเข้าออกได้จากซอยโปโลด้านถนนวิทยุ หรือ ซอยปลูกจิต ถนนพระรามสี่"}
                 </p>
-                <div className="inline-flex gap-3 flex-col sm:flex-row">
-                  <Link href="https://www.facebook.com/PoloFootballPark">
+                <div className="inline-flex gap-3 flex-col xs:flex-row">
+                  <Link2 href="https://www.facebook.com/PoloFootballPark">
                     <button
                       data-aos="fade-left"
                       data-aos-delay="300"
@@ -76,8 +78,8 @@ class Navopen extends React.Component {
                         ? "Join our club"
                         : "เป็นส่วนหนึ่งกับเรา"}
                     </button>
-                  </Link>
-                  <Link href="https://page.line.me/ewb3453i?openQrModal=true">
+                  </Link2>
+                  <Link2 href="https://page.line.me/ewb3453i?openQrModal=true">
                     <button
                       data-aos="fade-left"
                       data-aos-delay="300"
@@ -90,18 +92,30 @@ class Navopen extends React.Component {
                       />
                       {locale === "en" ? "Add Friend" : "เพิ่มเพื่อน"}
                     </button>
-                  </Link>
+                  </Link2>
                 </div>
-                <div className="arrow animate-bounce">
-                  <svg height="25" width="50">
-                    <polygon
-                      points="0,0 25,10 50,0 25,25"
-                      fill="rgba(255,255,255)"
-                      strokeWidth="0"
-                      stroke="rgba(255,255,255,.3)"
-                    />
-                  </svg>
-                </div>
+                <Link
+                  activeClass="active"
+                  to="section1"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1000}
+                >
+
+                  <div className="arrow animate-bounce cursor-pointer">
+
+                    <svg height="25" width="50">
+
+                      <polygon
+                        points="0,0 25,10 50,0 25,25"
+                        fill="rgba(255,255,255)"
+                        strokeWidth="0"
+                        stroke="rgba(255,255,255,.3)"
+                      />
+                    </svg>
+                  </div>
+                </Link>
               </div>
             </div>
             <div className="shade "></div>
@@ -110,51 +124,47 @@ class Navopen extends React.Component {
 
         <section className="h-full w-full  flex justify-center relative bg-[url('/assets/wepik-2022321-93143.png')] bg-fixed bg-cover  ">
           <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]"></div>
-          <div className="w-full  bg-white rounded-t-2xl  max-w-7xl  mt-10 px-10 pt-10 relative ">
+          <div id="section1" className="w-full  bg-white rounded-t-2xl  max-w-7xl  mt-10 px-4 lg:px-10 pt-10 relative ">
             <div className="flex w-full justify-between mb-5 border-b-[1px] border-black pb-2">
               <p className="text-2xl font-medium">
                 {locale === "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
               </p>
-              <button className="w-48 p-2 border-[1px] border-black">
-                SEE ALL
-              </button>
+              <Link2 href="/news">
+
+                <button className="border-black border-2 px-2 w-fit ">
+                  {locale === "en" ? "SEE ALL" : "ดูทั้งหมด"}
+
+                </button>
+              </Link2>
             </div>
+
             <NewsCarousel />
 
-            <div className="flex w-full justify-center">
-              <iframe
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPoloFootballPark%2F&tabs&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2209726886023849"
-                width="500"
-                height="100%"
-                style={{ border: "none", overflow: "hidden" }}
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              ></iframe>
-            </div>
+
 
             <div className=" w-full grid justify-items-center justify-center gap-3 mt-2 items-center overflow-hidden grid-cols-2 md:flex">
+
               <img
-                src="/assets/256527691_3053998368171556_3431729866755465441_n.jpg"
-                alt="eifel"
-                className="w-36 h-full object-contain"
-              />
-              <img
-                src="/assets/10411216_346724552175077_6814677325905394699_n.jpg"
-                alt="theold"
-                className="w-36 h-full object-contain"
-              />
-              <img
-                src="/assets/d41d8cd98f00b204e9800998ecf8427e-23ceec17f930a8cca7514308ecf04b72-1458271414.jpg"
+                src="/assets/siamsindhorn.jpeg"
                 alt="glass"
-                className="w-36 h-full object-contain"
+                className="w-48 h-full object-contain"
               />
               <img
                 src="/assets/download 11(1).png"
                 alt="srijul"
                 className="w-36 h-full  object-contain"
               />
+              <img
+                src="/assets/256527691_3053998368171556_3431729866755465441_n.jpg"
+                alt="eifel"
+                className="w-36 h-full object-contain"
+              />
+              <img
+                src="https://theoldsiam.co.th/images/logoweb-1528342110.png"
+                alt="theold"
+                className="w-36 h-full object-contain"
+              />
+
             </div>
           </div>
         </section>

@@ -34,7 +34,7 @@ const Index = () => {
                         {t.corner
                             .filter(p => p.id == id)
                             .map((item, index) =>
-                                <div key={index} className="w-full md:w-2/3 h-full flex flex-col  ">
+                                <div key={index} className="w-full md:w-2/3 h-full flex flex-col my-5 md:my-10  ">
 
                                     <div className="max-h-96 w-full flex justify-center relative overflow-hidden my-2">
                                         <img src={item.img} alt="corner" className="object-cover w-full h-full" />
@@ -43,12 +43,12 @@ const Index = () => {
                                     <p className="text-3xl font-medium  ">
                                         {item.topic}
                                     </p>
-                                    <p className="whitespace-pre-line">{item.content}</p>
-                                    <div className='inline-flex justify-between w-auto  mt-4 '>
+                                    <p className="whitespace-pre-line font-light">{item.content}</p>
+                                    <div className='inline-flex justify-between w-auto  mt-4 items-center'>
                                         <p>
-                                            แหล่งที่มา: {item.ref}
+                                            แหล่งที่มา: <span className="font-light"> {item.ref} </span>
                                         </p>
-                                        <button onClick={() => router.back()} className='rounded-none bg-transparent border-2 border-black w-fit h-[30px] text-black inline-flex items-center justify-center px-2'>
+                                        <button onClick={() => router.back()} className='font-light rounded-none bg-transparent border-2 border-black max-w-[130px] w-full h-[30px] text-black inline-flex items-center justify-center px-2'>
                                             <svg className="w-5 h-5 mr-2 -ml-1 rotate-180" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="apple" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" /></svg>
                                             กลับหน้าแรก
                                         </button>

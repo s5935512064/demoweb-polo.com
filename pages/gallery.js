@@ -149,7 +149,7 @@ const Gallery = () => {
                         <p className="text-3xl font-medium md:hidden">
                             {locale === "en" ? "Gallery" : "แกลอรี่"}
                         </p>
-                        <div className='overflow-hidden w-full relative my-10 '>
+                        <div className='overflow-hidden w-full relative my-5 md:my-10 '>
                             <div className="grid2">
                                 {images.map((item) => (
                                     <div key={item.id} className="overflow-hidden relative w-full">

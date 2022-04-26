@@ -11,11 +11,14 @@ import 'moment/locale/th';
 
 moment.locale('th');
 
-const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=full_picture,permalink_url,message,created_time&limit=15&access_token=EAAooxZBZBd3LcBAPdOHKvdEET61eDH1ah8mBVnXLJhaoIYBwGUKUimZBi7eZBZBbvyjjLa5tzprhTTU8ZCiRkEYY1D2qtY5mL6sVWpKrZAUVrNZAxRfXAZC5S1u6miEzMgzfcWYjmehEjQxD66m9BE1ar4OOnebhFMzAAS4OECCjQko5vZAIxkCFxJ6ZBjOOu18htJWjBb4VZAKYXgZDZD&format=json`;
+const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=id%2Cmessage%2Cmessage_tags%2Cfull_picture%2Cpermalink_url%2Ccreated_time&limit=15&access_token=EAAQUizb03jQBAPSiQVZBjgrhLbhTFiic5oSfMMZCyNLMEk7JSWB3hkztNwiEf4KgbTXdnv2ZACwdBskLRUwaDHebzdMwLW90WrPiJ4ZBR4fTt9CVcqoZAbV1thHge4J8MyIuAkHw7J4H02RP4X0RMF5Rpk76XdYYprgM7ZA9xpWZCevtqRZAlAPpbt4cWd3h78H8cEOyvU8NLPdaIG1ZAEXs80ZCEwz80OerwZD`;
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const News = () => {
+
+    const router = useRouter();
+    const { locale } = router;
 
     const { data, error } = useSWR(URL, fetcher);
     if (!data) {
@@ -56,7 +59,9 @@ const News = () => {
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
-                        <p className="md:hidden text-3xl font-medium">News&Event</p>
+                        <p className="md:hidden text-3xl font-medium">
+                            {locale == "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
+                        </p>
                         {/* Highlight */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
                             {data.data

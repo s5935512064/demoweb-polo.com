@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 /** @type {import('next').NextConfig} */
 
-const withTM = require("next-transpile-modules")(["@fancyapps/ui"]); // pass the modules you would like to see transpiled
+const withTM = require("next-transpile-modules")(["@fancyapps/ui", "@emotion/react"]); // pass the modules you would like to see transpiled
 
 const nextConfig = {
   reactStrictMode: false,

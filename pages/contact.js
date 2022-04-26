@@ -36,72 +36,132 @@ const Contact = () => {
                         <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     {/* Heading */}
-                    <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
+                    <section className="flex w-full flex-col justify-center items-center  px-4 lg:px-10">
                         <div className="md:hidden text-center">
 
-                            <p className="text-3xl font-medium"> Contact</p>
-                            <p>Get in touch with us!</p>
+                            <p className="text-3xl font-medium">
+                                {locale == "en" ? "Contact" : "ติดต่อเรา"}
+                            </p>
+                            <p className="font-light">
+                                {locale == "en" ? " Get in touch with us!" : "ใกล้ชิดกับเรามากยิ่งขึ้น"}
+                            </p>
                         </div>
 
 
-                        <div className="py-10 grid grid-cols-1 md:grid-cols-6 gap-3 w-full  ">
 
-                            {t.contact.directionByCar
-                                .map((item, index) => (
-                                    <div key={index} className=" grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-span-2 min-h-[150px]">
-                                        <FontAwesomeIcon icon={faCar} className="w-16 h-16 " />
-                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light">
-                                            {item.description}
+
+
+                        <fieldset className="border border-solid border-gray-300 p-3 w-full md:w-4/5 rounded mt-5 md:mt-10">
+
+                            <legend className="text-sm inline-flex items-center">
+                                <FontAwesomeIcon icon={faCar} className="w-10 h-10 mr-2" />
+                                {locale == "en" ? "BY CAR" : "เดินทางด้วยรถยนต์"}
+                            </legend>
+                            <div className=" grid grid-cols-1  gap-3  justify-items-center  ">
+
+                                {t.contact.directionByCar
+                                    .map((item, index) => (
+                                        <div key={index} className="w-full items-center justify-items-center lg:p-4 shadow-sm ">
+
+                                            <div className="tracking-normal font-light">
+                                                {item.description}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
-                            }
+                                    ))
+                                }
 
-                            {t.contact.directionByMRT
-                                .map((item, index) => (
-                                    <div key={index} className="grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-2 md:col-span-2 min-h-[150px]">
-                                        <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
-                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light ">
-                                            {item.description}
+                            </div>
+                        </fieldset>
+
+                        <fieldset className="border border-solid border-gray-300 p-3 w-full md:w-4/5 rounded mt-4">
+
+                            <legend className="text-sm inline-flex items-center">
+                                <FontAwesomeIcon icon={faTrain} className="w-10 h-10 mr-2" />
+                                {locale == "en" ? "BY MRT" : "เดินทางด้วย MRT"}
+
+                            </legend>
+                            <div className=" grid grid-cols-1  gap-3  justify-items-center  ">
+
+                                {t.contact.directionByMRT
+                                    .map((item, index) => (
+                                        <div key={index} className="w-full items-center justify-items-center lg:p-4 ">
+
+                                            <div className="tracking-normal font-light">
+                                                {item.description}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
-                            }
+                                    ))
+                                }
 
-                            {t.contact.directionByBTS
-                                .map((item, index) => (
-                                    <div key={index} className="grid grid-cols-3 md:grid-cols-1 w-full items-center justify-items-center lg:p-8 shadow-sm md:col-start-4 md:col-span-2 min-h-[150px]">
-                                        <FontAwesomeIcon icon={faTrain} className="w-16 h-16 " />
-                                        <div className="col-span-2 md:col-span-1 tracking-normal font-light">
-                                            {item.description}
+
+
+
+
+                            </div>
+                        </fieldset>
+                        <fieldset className="border border-solid border-gray-300 p-3 w-full md:w-4/5 rounded my-4">
+
+                            <legend className="text-sm inline-flex items-center">
+                                <FontAwesomeIcon icon={faTrain} className="w-10 h-10 mr-2" />
+                                {locale == "en" ? "BY BTS" : "เดินทางด้วย BTS"}
+                            </legend>
+                            <div className=" grid grid-cols-1  gap-3  justify-items-center  ">
+
+                                {t.contact.directionByBTS
+                                    .map((item, index) => (
+                                        <div key={index} className="w-full items-center justify-items-center lg:p-4  ">
+
+                                            <div className="tracking-normal font-light">
+                                                {item.description}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
-                            }
+                                    ))
+                                }
 
 
 
-                        </div>
+
+
+                            </div>
+                        </fieldset>
+
+
+
 
                     </section>
 
                     {/* GGmap */}
-                    <section className="bg-white h-full w-full relative flex  justify-center items-center min-h-[400px] ">
-                        <img src="/assets/map.png" alt="map" className="object-cover w-full h-full object-center absolute" />
-                        <div className="h-auto absolute bg-[#08250D] w-full bottom-0 bg-opacity-80 flex justify-center">
+                    <section className="bg-white h-full w-full relative flex flex-col  justify-center items-center min-h-[400px] my-5 md:my-10">
+                        <div className="relative w-full">
+                            <div className="w-full absolute" onClick="style.pointerEvents='none'"></div>
+                            <iframe className="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.8083407369404!2d100.55049340299895!3d13.730050579570921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f21c794f57d%3A0x3a7266e4c23a8943!2sPolo+Football+Park!5e0!3m2!1sth!2sth!4v1458552948737" width="600" height="400" frameBorder="0" style={{ border: "0" }} allowFullscreen></iframe>
+                        </div>
+
+
+                        <div className="h-auto relative bg-[#08250D] w-full bottom-0 bg-opacity-80 flex justify-center">
                             <div className="max-w-7xl w-full h-full flex justify-center p-4">
                                 <div className="w-full relative mx-4 md:mx-8 h-full flex justify-center items-center">
                                     <div className="grid gap-3 grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-x-2 md:divide-y-0  divide-[#B6A694] w-1/2 md:w-full">
-                                        <button className="text-white text-center pt-3">
+                                        <Link href="https://maps.google.com/maps/dir//Polo+Football+Park+143-143%2F1+%E0%B8%8B%E0%B8%AD%E0%B8%A2+%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%B2%E0%B9%81%E0%B8%94%E0%B8%87+%E0%B8%96%E0%B8%99%E0%B8%99+%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B8+Lumphini,+Pathum+Wan,+Bangkok+10330/@13.7300938,100.5505607,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x30e29f21c794f57d:0x3a7266e4c23a8943">
 
-                                            Google Map
-                                        </button>
-                                        <button className="text-white text-center  pt-3">
-                                            Download Map
-                                        </button>
-                                        <button className="text-white text-center pt-3">
-                                            Get Direction
-                                        </button>
+
+                                            <button className="text-white text-center pt-3">
+                                                Google Map
+                                            </button>
+                                        </Link>
+
+                                        <a href="/assets/polo_map.png" target="_blank" download className="flex justify-center">
+
+                                            <button className="text-white text-center  pt-3">
+                                                Download Map
+                                            </button>
+                                        </a>
+                                        <Link href="https://maps.google.com/maps/dir//Polo+Football+Park+143-143%2F1+%E0%B8%8B%E0%B8%AD%E0%B8%A2+%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%B2%E0%B9%81%E0%B8%94%E0%B8%87+%E0%B8%96%E0%B8%99%E0%B8%99+%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B8+Lumphini,+Pathum+Wan,+Bangkok+10330/@13.7300938,100.5505607,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x30e29f21c794f57d:0x3a7266e4c23a8943">
+
+                                            <button className="text-white text-center pt-3">
+                                                Get Direction
+                                            </button>
+                                        </Link>
 
                                     </div>
                                 </div>
@@ -110,7 +170,7 @@ const Contact = () => {
                     </section>
 
                     {/* Company */}
-                    <section className="w-full h-full px-4 lg:px-10">
+                    <section className="w-full h-full px-4 lg:px-10 my-5 md:my-10">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                             <div className="w-full h-full  relative overflow-hidden">
                                 <img src="/assets/polo_map.png" alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-100 " />

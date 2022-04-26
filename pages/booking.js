@@ -4,12 +4,56 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import "@fancyapps/ui/dist/carousel.css";
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Parse from 'html-react-parser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
+
+
+import axios from "axios";
+import moment from 'moment';
+moment().format();
+
+const URL = "https://polomanage.ssdapp.net/booking_status.php?date";
+const parse = require('html-react-parser');
 
 const Booking = () => {
   const router = useRouter();
   const { locale } = router;
+  var currentDate = moment().format("YYYY-MM-DD");
+
+  const [value, setValue] = useState(new Date(currentDate));
+  const [table, setTable] = useState('');
+
+  const getTable = async (date) => {
+    return await axios.post(`${URL}=${date}`).then((res) => {
+      if (res.data) {
+        setTable(res.data)
+        console.log(table);
+        return (
+          <div> Have info </div>
+        )
+      }
+    });
+  };
+
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+    getTable(moment(newValue).format('YYYY-MM-DD'))
+  };
+
+  useEffect(() => {
+    handleChange()
+  }, []);
+
 
   return (
+
     <Layout>
       <Head>
         <title>Booking - Polo Football Park</title>
@@ -30,35 +74,123 @@ const Booking = () => {
               {locale === "en" ? " Rate&Booking" : "ราคาและการจอง"}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-6 gap-3 w-full h-full mt-10">
-              <div className="sm:col-span-4 overflow-hidden">
-                <p>Please select date to check </p>
-                <div className="relative"></div>
-                <img
-                  src="/assets/table.jpeg"
-                  alt="xxxx"
-                  className="object-cover w-full h-full object-center"
-                />
-              </div>
-              <div className="sm:col-span-2 ">
-                <div className="my-5 flex gap-3 w-full">
-                  <button className="bg-red-400 p-3 w-36"> จองแล้ว </button>
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-3 w-full h-full mt-5 md:mt-10">
+              <div className="sm:col-span-4 overflow-x-scroll">
+                <p className="mb-1 text-lg">
+                  {locale == 'en' ? "Please select a date to check the booking schedule" : "ตรวจสอบการจองสนาม จากวันที่ (กรุณาเลือกวันที่ ที่ต้องการตรวจเช็ค)"}
+                </p>
+                <div className="relative mb-2">
+                  <LocalizationProvider dateAdapter={AdapterMoment}>
+                    <Stack spacing={4}>
+                      <DesktopDatePicker
+                        mask='__/__/____'
+                        inputFormat="DD/MM/YYYY"
+                        value={value}
+                        onChange={handleChange}
+                        renderInput={(params) => <TextField {...params} />}
+                      />
+                    </Stack>
+                  </LocalizationProvider>
 
-                  <button className="bg-green-400 p-3 w-36 "> ว่าง </button>
                 </div>
-                <p className="text-red-400">
-                  *** Status Table reservations are just booking information
-                  field. . At the current time Changes can not be adjusted, and
-                  reserves the right to change. If you have any questions,
-                  please contact us.
+
+                <div className="">
+                  {parse(table)}
+                </div>
+              </div>
+              <div className="sm:col-span-2  ">
+                <div className="mt-8 flex gap-3 w-full">
+                  <button className="bg-red-400 p-3 w-36">
+                    {locale == 'en' ? "Reserved" : "มีจองแล้ว"}
+                  </button>
+
+                  <button className="bg-[#94E661] p-3 w-36 "> {locale == 'en' ? "Can be booked" : "สามารถจองได้"} </button>
+                </div>
+                <p className="text-red-400  font-light">
+                  {locale == 'en' ? "*** Status Table reservations are just booking information field. At the current time Changes can not be adjusted, and reserves the right to change. If you have any questions, please contact us." : "***ตารางบอกสถานะการจองนี้เป็นเพียงข้อมูลการจองใช้สนาม ณ เวลาปัจจุบัน ไม่สามารถเปลี่ยนแปลงปรับเปลี่ยนได้ และขอสงวนสิทธิ์ในการเปลี่ยนแปลง หากมีข้อสงสัยกรุณาติดต่อเจ้าหน้าที่"}
+
                 </p>
 
-                <div className="w-full h-96 bg-blue-100 flex justify-center items-center my-5">
-                  Rate
+                <div className="w-full h-96 my-5">
+                  <div className="grid grid-cols-3 grid-rows-6 justify-items-center w-full h-4/5 border-b border-r divide-y divide-x font-light bg-slate-200 gap-1 p-2 text-xs sm:text-sm md:text-xs lg:text-base ">
+                    <div className="w-full h-full flex justify-center border-l border-t items-center !font-normal bg-white shadow">
+                      {locale == "en" ? "Day" : "วัน"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center !font-normal bg-white shadow">
+                      {locale == "en" ? "Time" : "เวลา"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center !font-normal bg-white shadow">
+                      {locale == "en" ? "Price" : "ราคา"}
+
+                    </div>
+                    <div className="row-span-3 w-full h-full flex items-center justify-center bg-white shadow">
+                      {locale == "en" ? "Mon-Fri" : " จันทร์-ศุกร์"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      12.00 - 18.00
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      {locale == "en" ? " 1,200 Baht" : " 1,200 บาท"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      18.00 - 22.00
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      {locale == "en" ? "2,000 Baht" : "2,000 บาท"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      22.00 - 24.00
+                    </div>
+
+
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      {locale == "en" ? "1,700 Baht" : " 1,700 บาท"}
+
+                    </div>
+                    <div className="row-span-2 w-full h-full flex items-center justify-center text-center bg-white shadow">
+                      {locale == "en" ? "Sat-Sun & Holiday" : "เสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      09.00 - 18.00
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      {locale == "en" ? " 1,500 Baht" : " 1,500 บาท"}
+
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      18.00 - 24.00
+                    </div>
+                    <div className="w-full h-full flex justify-center items-center bg-white shadow">
+                      {locale == "en" ? " 1,700 Baht" : " 1,700 บาท"}
+
+                    </div>
+
+
+                  </div>
+                  <p className="mt-2 font-light text-red-400 ">
+                    {locale == "en" ? "**Price before opening hours Mon-Fri (09.00-12.00 AM) 1,200 Baht**" : "**ราคาก่อนเวลาเปิดให้บริการ จันทร์-ศุกร์ (09.00-12.00) ชั่วโมงละ 1200 บาท**"}
+                  </p>
                 </div>
 
-                <div className="w-full h-48 bg-yellow-200 flex justify-center items-center my-5">
-                  For more information
+                <div className="w-full h-48 bg-yellow-200 flex flex-col justify-center items-end my-5 py-5 relative px-6">
+                  <p className="inline-flex items-center  justify-center w-full text-xl text-center mb-2">
+                    {locale == "en" ? "For events & activities rule,please contact." : "หากต้องการทราบอัตราค่าบริการ เช่าจัดงาน event และกิจกรรม กรุณาติดต่อ"}
+                  </p>
+
+
+                  <a href="tel:+6670708833" className="w-full h-[50px] rounded bg-[#08250D] text-white inline-flex items-center  justify-center ">
+                    <FontAwesomeIcon icon={faPhone} className="text-white w-8 h-8  rotate-12 hover:animate-bounce duration-150" />
+                    <p className="text-xl ml-4">08-7070-8833</p>  </a>
+
+                  <div>
+
+                  </div>
                 </div>
               </div>
             </div>

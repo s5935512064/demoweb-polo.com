@@ -33,7 +33,7 @@ const About = () => {
                         <p className="text-3xl font-medium md:hidden">
                             {locale === "en" ? "About us" : "เกี่ยวกับเรา"}
                         </p>
-                        <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-3 p-5">
+                        <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 md:mt-10">
 
                             <div className=" md:mr-10">
                                 <img src={t.aboutus.image} alt="aboutus" className="h-full w-full object-contain object-center shadow-md rounded " />

@@ -2,6 +2,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { motion, AnimatePresence } from "framer-motion"
 
+
 const variants = {
     hidden: { opacity: 0, x: 0, y: 0 },
     enter: { opacity: 1, x: 0, y: 0, },
@@ -22,7 +23,9 @@ const Layout = ({ children }) => {
             >
                 <div className="min-h-screen w-full h-full bg-fixed bg-[url('/assets/wepik-2022321-93143.png')] bg-cover">
                     <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]" />
+
                     {children}
+
                 </div>
             </motion.main>
             <Footer />
