@@ -91,7 +91,7 @@ const News = () => {
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
 
                                                 <Link href={item.permalink_url}>
-                                                    <a target="_blank" rel="noopener">
+                                                    <a target="_blank" rel="noopener noreferrer">
                                                         <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
                                                     </a>
                                                 </Link>
@@ -117,7 +117,7 @@ const News = () => {
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
 
                                                 <Link href={item.permalink_url}>
-                                                    <a target="_blank" rel="noopener">
+                                                    <a target="_blank" rel="noopener noreferrer">
 
                                                         <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
                                                     </a>
@@ -141,7 +141,7 @@ const News = () => {
 
 
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
-                                                <a target="_blank" rel="noopener">
+                                                <a target="_blank" rel="noopener noreferrer">
 
                                                     <Link href={item.permalink_url}>
                                                         <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
@@ -181,7 +181,7 @@ const News = () => {
 
 
                                                     <Link href={item.permalink_url}>
-                                                        <a target="_blank" rel="noopener">
+                                                        <a target="_blank" rel="noopener noreferrer">
 
                                                             <button className="w-fit border-2 border-black px-2">อ่านเพิ่มเติม</button>
                                                         </a>

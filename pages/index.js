@@ -77,7 +77,7 @@ class Navopen extends React.Component {
                 </p>
                 <div className="inline-flex gap-3 flex-col xs:flex-row">
                   <Link2 href="https://www.facebook.com/PoloFootballPark">
-                    <a target="_blank" rel="noopener">
+                    <a target="_blank" rel="noopener noreferrer">
 
                       <button
                         data-aos="fade-left"
@@ -96,7 +96,7 @@ class Navopen extends React.Component {
                     </a>
                   </Link2>
                   <Link2 href="https://page.line.me/ewb3453i?openQrModal=true">
-                    <a target="_blank" rel="noopener">
+                    <a target="_blank" rel="noopener noreferrer">
 
                       <button
                         data-aos="fade-left"

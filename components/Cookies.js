@@ -2,6 +2,10 @@ import { Dialog, Transition, Switch } from '@headlessui/react'
 import React, { Fragment, useState, useEffect } from 'react'
 import Link from "next/link";
 
+function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+}
+
 export default function Cookies() {
     let [bannerOpen, setBannerOpen] = useState(true)
     let [isOpen, setIsOpen] = useState(false)
@@ -124,12 +128,12 @@ export default function Cookies() {
                                         <Switch
                                             checked={analysis}
                                             onChange={setAnalysis}
-                                            className={(analysis ? "bg-teal-900" : "bg-slate-300", "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
+                                            className={classNames(analysis ? "bg-teal-900" : "bg-slate-300", "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={(analysis ? 'translate-x-[30px]' : 'translate-x-[2px]', ' pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]')}
+                                                className={classNames(analysis ? 'translate-x-[30px]' : 'translate-x-[2px]', ' pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]')}
                                             />
                                         </Switch>
                                     </div>
@@ -145,13 +149,13 @@ export default function Cookies() {
                                         <Switch
                                             checked={marketing}
                                             onChange={setMarketing}
-                                            className={(marketing ? 'bg-teal-900' : 'bg-slate-300',
+                                            className={classNames(marketing ? 'bg-teal-900' : 'bg-slate-300',
                                                 "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={(marketing ? 'translate-x-[30px]' : 'translate-x-[2px]',
+                                                className={classNames(marketing ? 'translate-x-[30px]' : 'translate-x-[2px]',
                                                     "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")} />
                                         </Switch>
                                     </div>
