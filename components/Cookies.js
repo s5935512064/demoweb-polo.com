@@ -122,6 +122,26 @@ export default function Cookies() {
                                         คุกกี้พื้นฐานที่จำเป็น เพื่อช่วยให้การทำงานหลักของเว็บไซต์ใช้งานได้ รวมถึงการเข้าถึงพื้นที่ที่ปลอดภัยต่าง ๆ ของเว็บไซต์ หากไม่มีคุกกี้นี้เว็บไซต์จะไม่สามารถทำงานได้อย่างเหมาะสม และจะใช้งานได้โดยการตั้งค่าเริ่มต้น โดยไม่สามารถปิดการใช้งานได้ รายละเอียดคุกกี้
                                     </p>
                                 </div>
+                                <div className="mt-2 border p-3 md:p-6 rounded">
+                                    <div className="flex justify-between text-base md:text-lg ">
+                                        <p >คุกกี้ในส่วนการตลาด</p>
+                                        <Switch
+                                            checked={marketing}
+                                            onChange={setMarketing}
+                                            className={classNames(marketing ? "bg-teal-900" : "bg-slate-300",
+                                                "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
+                                        >
+                                            <span className="sr-only">Use setting</span>
+                                            <span
+                                                aria-hidden="true"
+                                                className={classNames(marketing ? "translate-x-[30px]" : "translate-x-[2px]",
+                                                    "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")} />
+                                        </Switch>
+                                    </div>
+                                    <p className=" text-gray-500 font-light mt-2 text-sm md:text-base">
+                                        คุกกี้ในส่วนการตลาด ใช้เพื่อติดตามพฤติกรรมผู้เข้าชมเว็บไซต์เพื่อแสดงโฆษณาที่เหมาะสมสำหรับผู้ใช้งานแต่ละรายและเพื่อเพิ่มประสิทธิผลการโฆษณาสำหรับผู้เผยแพร่และผู้โฆษณาสำหรับบุคคลที่สาม รายละเอียดคุกกี้
+                                    </p>
+                                </div>
                                 <div className="mt-2 border p-3 md:p-6 rounded ">
                                     <div className="flex justify-between text-base md:text-lg ">
                                         <p >คุกกี้ในส่วนวิเคราะห์</p>
