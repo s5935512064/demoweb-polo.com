@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import { useEffect } from "react";
 import "aos/dist/aos.css";
+import Cookies from "../components/Cookies";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </AnimatePresence>
+      <Cookies />
     </>
   );
 }

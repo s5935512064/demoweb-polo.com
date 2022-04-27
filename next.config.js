@@ -1,12 +1,16 @@
-const withPlugins = require("next-compose-plugins");
-const webpack = require("webpack");
-
 /** @type {import('next').NextConfig} */
 
+const withPlugins = require("next-compose-plugins");
+const webpack = require("webpack");
+const withImages = require('next-images');
 const withTM = require("next-transpile-modules")(["@fancyapps/ui", "@emotion/react"]); // pass the modules you would like to see transpiled
 
 const nextConfig = {
   reactStrictMode: false,
+  images: {
+    domains: ["scontent-kut2-1.xx.fbcdn.net"],
+    formats: ['image/avif', 'image/webp'],
+  },
   i18n: {
     // providing the locales supported by your application
     locales: ["en", "th"],
@@ -24,4 +28,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([nextConfig, withTM]);
+module.exports = withPlugins([[withImages], [withTM]], nextConfig);

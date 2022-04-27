@@ -16,21 +16,21 @@ export default {
             { description: "From Central Chidlom Straight into the road after the jungle park, turn left, run straight into the jam Running near the left lane, about 200 meters, ran straight into the RBSC Polo Club, turn left along the wall. Jae, split, turn right Then go straight to the football field to be on the left.", },
         ],
         directionByMRT: [
-            { description: "Down to the Lumpini Station Heading to the solution 3, the radio road, calling motorcycles, hire or taxis to send to the football field.", },
+            { description: "Down to the Lumpini Station Heading to the solution 3, the radio road, and use a motorcycle taxi service or taxi to continue to the Polo Football Park.", },
 
         ],
         directionByBTS: [
 
-            { description: "Down to the pallitic station Can be issued at the exit 2 Park Venture Building or the 4-side exit. Novotel Soi Ruamrudee called Motorbike Hire or taxi to send to the football field", },
+            { description: "Down to the pallitic station Can be issued at the exit 2 Park Venture Building or the 4-side exit. Novotel Soi Ruamrudee, and use a motorcycle taxi service or taxi to continue to the Polo Football Park", },
         ],
         companyName: "Siam Sindhorn Co., Ltd.",
         companyAddress: "Sindhorn. Building Tower 1., 4th Fl., 130-132  Wireless road.,\nPhathumwan.,Bangkok 10330",
-        companyPhone: "Field reservation : 08-7070-8833\nEvent reservation : 092-270-0241\nCompany Phone : 02-263-2525",
+        companyPhone: "Field reservation : 08-7070-8833\nEvent reservation : 092-270-0241",
         companyEmail: "info@polofootballpark.com",
         companySite: "www.polofootballpark.com",
         companyfacebook: "PoloFootballPark",
         companyIg: "polo_football_park",
-        companyLine: "Line@",
+        companyLine: "@polofootballpark",
     },
 
     corner: [
@@ -65,12 +65,14 @@ export default {
             { id: 3, src: "https://polofootballpark.com/images/icon/10.png", description: "Rent for Advertisement." },
             { id: 4, src: "https://polofootballpark.com/images/icon/3.png", description: "Rent for Events or Activities." },
             { id: 5, src: "https://polofootballpark.com/images/icon/4.png", description: "Referee." },
-            { id: 6, src: "https://polofootballpark.com/images/icon/5.png", description: "Borrow football for playing." },
-            { id: 7, src: "https://polofootballpark.com/images/icon/11.png", description: "Vest service a divided team." },
-            { id: 8, src: "https://polofootballpark.com/images/icon/6.png", description: "Lockers and Towels." },
-            { id: 9, src: "https://polofootballpark.com/images/icon/7.png", description: "Bathroom with soap & shampoo." },
-            { id: 10, src: "https://polofootballpark.com/images/icon/8.png", description: "Food and Beverages." },
-            { id: 11, src: "https://polofootballpark.com/images/icon/9.png", description: "Free Wi-fi." },
+            { id: 6, src: "https://polofootballpark.com/images/icon/5.png", description: "Football for playing." },
+            { id: 7, src: "/assets/shoes.png", description: "Shoe and glove rental service." },
+            { id: 8, src: "/assets/towel.png", description: "Towel rental service." },
+            { id: 9, src: "https://polofootballpark.com/images/icon/11.png", description: "Vest service a divided team." },
+            { id: 10, src: "https://polofootballpark.com/images/icon/6.png", description: "Lockers." },
+            { id: 11, src: "https://polofootballpark.com/images/icon/7.png", description: "Bathroom with soap & shampoo." },
+            { id: 12, src: "https://polofootballpark.com/images/icon/8.png", description: "Food and Beverages." },
+            { id: 13, src: "https://polofootballpark.com/images/icon/9.png", description: "Free Wi-fi." },
 
         ],
         regulations: [

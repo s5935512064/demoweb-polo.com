@@ -16,21 +16,21 @@ export default {
             { description: "จาก เซ็นทรัลชิดลม ตรงเข้ามาผ่านถนนหลังสวน เจอสามแยก เลี้ยวซ้าย วิ่งตรงเข้ามา จนเจอสามแยก เลี้ยวขวาเข้าถนนวิทยุ วิ่งชิดเลนซ้าย ประมาณ 200 เมตร วิ่งตรงเข้ามาจะเห็น RBSC Polo Club เลี้ยวซ้ายตามแนวกำแพง เจอสามแยกเลี้ยวขวา จากนั้นตรงไปสนามฟุตบอลจะอยู่ทางซ้ายมือ", },
         ],
         directionByMRT: [
-            { description: "ลงสถานีรถไฟฟ้าใต้ดินสถานีลุมพินี มุ่งหน้าไปยังทางออกที่ 3 ถนนวิทยุ เรียกมอเตอร์ไซด์รับจ้าง หรือ รถแท็กซี่ ให้มาส่งที่สนามฟุตบอล", },
+            { description: "ลงสถานีรถไฟฟ้าใต้ดินสถานีลุมพินี มุ่งหน้าไปยังทางออกที่ 3 ถนนวิทยุ และใช้บริการรถจักรยานยนต์รับจ้าง หรือรถแท็กซี่ เพื่อเดินทางต่อมายัง โปโล ฟุตบอลพาร์ค", },
 
         ],
         directionByBTS: [
 
-            { description: "ลงสถานีเพลิตจิต สามารถออกได้ที่ ทางออก 2 อาคารปาร์คเวนเจอร์ หรือ ทางออก 4 ฝั่งโนโวเทล ซอยร่วมฤดี เรียกมอเตอร์ไซด์รับจ้าง หรือ รถแท็กซี่ ให้มาส่งที่สนามฟุตบอล", },
+            { description: "ลงสถานีเพลิตจิต สามารถออกได้ที่ ทางออก 2 อาคารปาร์คเวนเจอร์ หรือ ทางออก 4 ฝั่งโนโวเทล ซอยร่วมฤดี และใช้บริการรถจักรยานยนต์รับจ้าง หรือรถแท็กซี่ เพื่อเดินทางต่อมายัง โปโล ฟุตบอลพาร์ค", },
         ],
         companyName: "บริษัท สยามสินธร จำกัด",
         companyAddress: "130-132 อาคารสินธร ทาวเวอร์ 1 ชั้น 4 \n ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ 10330",
-        companyPhone: "จองสนาม : 08-7070-8833 \n จองอีเว้นท์ : 092-270-0241 \n02-263-2525",
+        companyPhone: "จองสนาม : 08-7070-8833 \n จองอีเว้นท์ : 092-270-0241",
         companyEmail: "info@polofootballpark.com",
         companySite: "www.polofootballpark.com",
         companyfacebook: "PoloFootballPark",
         companyIg: "polo_football_park",
-        companyLine: "Line@",
+        companyLine: "@polofootballpark",
     },
 
     corner: [
@@ -65,12 +65,14 @@ export default {
             { id: 3, src: "https://polofootballpark.com/images/icon/10.png", description: "ให้เช่าพื้นที่ถ่ายทำโฆษณา" },
             { id: 4, src: "https://polofootballpark.com/images/icon/3.png", description: "ให้เช่าเหมาสนามและพื้นที่เพื่อการจัดงาน Event and Activity" },
             { id: 5, src: "https://polofootballpark.com/images/icon/4.png", description: "จัดหากรรมการสนามหรือ ทีมคู่เล่น (โปรดแจ้งล่วงหน้า)" },
-            { id: 6, src: "https://polofootballpark.com/images/icon/5.png", description: "ให้ยืมลูกฟุตบอลให้เช่ารองเท้าฟุตบอล" },
-            { id: 7, src: "https://polofootballpark.com/images/icon/11.png", description: "มีเสื้อแบ่งทีมให้บริการ" },
-            { id: 8, src: "https://polofootballpark.com/images/icon/6.png", description: "มีล๊อคเกอร์สำหรับเก็บของ พร้อมบริการผ้าเช็ดตัว" },
-            { id: 9, src: "https://polofootballpark.com/images/icon/7.png", description: "ห้องอาบน้ำมีเครื่องปรับอากาศ บริการสบู่และยาสระผม" },
-            { id: 10, src: "https://polofootballpark.com/images/icon/8.png", description: "บริการอาหารและเครื่องดื่ม" },
-            { id: 11, src: "https://polofootballpark.com/images/icon/9.png", description: "Free Wi-Fi ในพื้นที่ต้อนรับ" },
+            { id: 6, src: "https://polofootballpark.com/images/icon/5.png", description: "มีลูกฟุตบอลให้บริการ" },
+            { id: 7, src: "/assets/shoes.png", description: "มีรองเท้าฟุตบอลและถุงมือให้เช่า" },
+            { id: 8, src: "/assets/towel.png", description: "มีผ้าเช็ดตัวให้เช่า" },
+            { id: 9, src: "https://polofootballpark.com/images/icon/11.png", description: "มีเสื้อแบ่งทีมให้บริการ" },
+            { id: 10, src: "https://polofootballpark.com/images/icon/6.png", description: "มีล๊อคเกอร์สำหรับเก็บของให้บริการ" },
+            { id: 11, src: "https://polofootballpark.com/images/icon/7.png", description: "ห้องอาบน้ำมีเครื่องปรับอากาศ บริการสบู่และยาสระผม" },
+            { id: 12, src: "https://polofootballpark.com/images/icon/8.png", description: "บริการอาหารและเครื่องดื่ม" },
+            { id: 13, src: "https://polofootballpark.com/images/icon/9.png", description: "Free Wi-Fi ในพื้นที่ต้อนรับ" },
 
         ],
         regulations: [

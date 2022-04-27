@@ -29,6 +29,10 @@ a {
   box-sizing: border-box;
 }
 
+#map {
+  height: 100%;
+}
+
 .arrow {
   position: absolute;
   left: 50%;
@@ -67,19 +71,18 @@ a {
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-@media only screen and (max-width: 640px) {
+@media screen and (max-width: 640px) {
   #mainCarousel .carousel__slide {
     width: 100%;
-    padding: 0;
   }
 }
 
 .carousel__button.is-prev {
-  left: 70px;
+  left: -1.5rem;
 }
 
 .carousel__button.is-next {
-  right: 70px;
+  right: -1.5rem;
 }
 
 .ham {

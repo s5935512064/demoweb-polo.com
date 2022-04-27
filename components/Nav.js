@@ -47,8 +47,8 @@ const Nav = () => {
               className="text-white w-12 h-12 mr-4 rotate-12"
             />
             <div className="flex-col">
-              {locale === "en" ? "Reservation" : "จองสนาม"}
-              <p className="text-xl">08-7070-8833</p>
+              {locale === "en" ? "Reservation" : "จองสนาม"} <br></br>
+              <a href="tel:+6670708833" className="text-xl">08-7070-8833</a>
             </div>
           </div>
 
