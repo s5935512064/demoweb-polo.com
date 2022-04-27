@@ -133,7 +133,7 @@ export default function Cookies() {
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={classNames(analysis ? 'translate-x-[30px]' : 'translate-x-[2px]', ' pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]')}
+                                                className={classNames(analysis ? "translate-x-[30px]" : "translate-x-[2px]", "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")}
                                             />
                                         </Switch>
                                     </div>
