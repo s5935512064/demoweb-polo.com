@@ -41,7 +41,7 @@ export default function Cookies() {
                 <p className="text-lg">เว็บไซต์นี้ใช้คุกกี้</p>
                 <div className="flex flex-col justify-between lg:items-center lg:flex-row gap-3">
                     <p className="font-light text-sm sm:text-base">
-                        เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก "การตั้งค่าคุกกี้"
+                        เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก การตั้งค่าคุกกี้
 
                         <Link href="/cookiesPolicy">
                             <span className="underline ml-2">นโยบายการใช้คุ๊กกี้</span>
