@@ -143,19 +143,19 @@ export default function Cookies() {
                                 </div>
 
 
-                                <div className="mt-2 border p-3 md:p-6 rounded ">
+                                <div className="mt-2 border p-3 md:p-6 rounded">
                                     <div className="flex justify-between text-base md:text-lg ">
                                         <p >คุกกี้ในส่วนการตลาด</p>
                                         <Switch
                                             checked={marketing}
                                             onChange={setMarketing}
-                                            className={classNames(marketing ? 'bg-teal-900' : 'bg-slate-300',
+                                            className={classNames(marketing ? "bg-teal-900" : "bg-slate-300",
                                                 "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={classNames(marketing ? 'translate-x-[30px]' : 'translate-x-[2px]',
+                                                className={classNames(marketing ? "translate-x-[30px]" : "translate-x-[2px]",
                                                     "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")} />
                                         </Switch>
                                     </div>
@@ -166,7 +166,7 @@ export default function Cookies() {
                                 <div className="mt-4 flex justify-end">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center text-sm md:text-base px-4 py-2  font-medium text-white border border-transparent bg-orange-500 rounded-md shadow hover:bg-orange-400 "
+                                        className="inline-flex justify-center text-sm md:text-base px-4 py-2  font-medium text-white border border-transparent bg-orange-500 rounded-md shadow hover:bg-orange-400"
                                         onClick={closeModal}
                                     >
                                         ยืนยันตัวเลือกของฉัน
