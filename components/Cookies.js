@@ -128,7 +128,7 @@ export default function Cookies() {
                                         <Switch
                                             checked={analysis}
                                             onChange={setAnalysis}
-                                            className={classNames(analysis ? "bg-teal-900" : "bg-slate-300", "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
+                                            className={classNames(analysis ? "bg-teal-900" : "bg-slate-300", "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
@@ -143,26 +143,7 @@ export default function Cookies() {
                                 </div>
 
 
-                                <div className="mt-2 border p-3 md:p-6 rounded">
-                                    <div className="flex justify-between text-base md:text-lg ">
-                                        <p >คุกกี้ในส่วนการตลาด</p>
-                                        <Switch
-                                            checked={marketing}
-                                            onChange={setMarketing}
-                                            className={classNames(marketing ? "bg-teal-900" : "bg-slate-300",
-                                                "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
-                                        >
-                                            <span className="sr-only">Use setting</span>
-                                            <span
-                                                aria-hidden="true"
-                                                className={classNames(marketing ? "translate-x-[30px]" : "translate-x-[2px]",
-                                                    "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")} />
-                                        </Switch>
-                                    </div>
-                                    <p className=" text-gray-500 font-light mt-2 text-sm md:text-base">
-                                        คุกกี้ในส่วนการตลาด ใช้เพื่อติดตามพฤติกรรมผู้เข้าชมเว็บไซต์เพื่อแสดงโฆษณาที่เหมาะสมสำหรับผู้ใช้งานแต่ละรายและเพื่อเพิ่มประสิทธิผลการโฆษณาสำหรับผู้เผยแพร่และผู้โฆษณาสำหรับบุคคลที่สาม รายละเอียดคุกกี้
-                                    </p>
-                                </div>
+
                                 <div className="mt-4 flex justify-end">
                                     <button
                                         type="button"
