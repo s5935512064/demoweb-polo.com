@@ -169,7 +169,7 @@ const Contact = () => {
                                         <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-4" />
                                         {t.contact.companyPhone}</p>
 
-                                    <a href="mailto:info@polofootballpark.com" target="_blank" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
+                                    <a href="mailto:info@polofootballpark.com" target="_blank" rel="noopener" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
                                         <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-4" />
                                         {t.contact.companyEmail}</a>
 
@@ -178,21 +178,21 @@ const Contact = () => {
                                         {t.contact.companySite}</p>
 
                                     <Link href="https://www.facebook.com/PoloFootballPark">
-                                        <a target="_blank" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a target="_blank" rel="noopener" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faFacebook} className="w-5 h-5 mr-4" />
                                             {t.contact.companyfacebook}</a>
                                     </Link>
 
                                     <Link href="https://www.instagram.com/polo_football_park/">
 
-                                        <a target="_blank" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a target="_blank" rel="noopener" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faInstagram} className="w-5 h-5 mr-4" />
                                             {t.contact.companyIg}</a>
                                     </Link>
 
                                     <Link href="https://page.line.me/ewb3453i?openQrModal=true">
 
-                                        <a target="_blank" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a target="_blank" rel="noopener" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faLine} className="w-5 h-5 mr-4" />
                                             {t.contact.companyLine}</a>
                                     </Link>

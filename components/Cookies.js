@@ -124,14 +124,12 @@ export default function Cookies() {
                                         <Switch
                                             checked={analysis}
                                             onChange={setAnalysis}
-                                            className={`${analysis ? 'bg-teal-900' : 'bg-slate-300'}
-          relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                                            className={(analysis ? "bg-teal-900" : "bg-slate-300", "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={`${analysis ? 'translate-x-[30px]' : 'translate-x-[2px]'}
-            pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]`}
+                                                className={(analysis ? 'translate-x-[30px]' : 'translate-x-[2px]', ' pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]')}
                                             />
                                         </Switch>
                                     </div>
@@ -147,15 +145,14 @@ export default function Cookies() {
                                         <Switch
                                             checked={marketing}
                                             onChange={setMarketing}
-                                            className={`${marketing ? 'bg-teal-900' : 'bg-slate-300'}
-          relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                                            className={(marketing ? 'bg-teal-900' : 'bg-slate-300',
+                                                "relative inline-flex flex-shrink-0 h-[28px] w-[58px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75")}
                                         >
                                             <span className="sr-only">Use setting</span>
                                             <span
                                                 aria-hidden="true"
-                                                className={`${marketing ? 'translate-x-[30px]' : 'translate-x-[2px]'}
-            pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]`}
-                                            />
+                                                className={(marketing ? 'translate-x-[30px]' : 'translate-x-[2px]',
+                                                    "pointer-events-none inline-block h-[20px] w-[20px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200 translate-y-[2px]")} />
                                         </Switch>
                                     </div>
                                     <p className=" text-gray-500 font-light mt-2 text-sm md:text-base">
