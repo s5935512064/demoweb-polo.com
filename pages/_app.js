@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+
 import { AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import { useEffect } from "react";

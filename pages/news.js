@@ -144,7 +144,10 @@ const News = () => {
                                                 <a target="_blank" rel="noopener noreferrer">
 
                                                     <Link href={item.permalink_url}>
-                                                        <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                        <a target="_blank" rel="noopener noreferrer">
+
+                                                            <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                        </a>
                                                     </Link>
                                                 </a>
                                             </div>

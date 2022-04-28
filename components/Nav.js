@@ -38,7 +38,7 @@ const Nav = () => {
 
   return (
     <AnimateSharedLayout>
-      <div className="w-full h-24  bg-[url('/assets/header.png')] sticky top-0 inset-x-0 flex justify-center !z-50">
+      <div className="w-full h-24  bg-[url('/assets/header.png')] sticky sm:top-0 inset-x-0 flex justify-center !z-50">
         <div className="w-full bg-[#08250D] absolute h-full opacity-30" />
         <div className="max-w-7xl px-4 w-full h-full flex items-center text-white justify-between absolute">
           <div className="w-full hidden sm:flex items-center">
@@ -53,7 +53,7 @@ const Nav = () => {
           </div>
 
           <div className="w-full  flex items-center">
-            <Link href="/">
+            <Link href="/test">
               <img
                 src="/assets/logo.png"
                 alt="logo"
@@ -61,6 +61,7 @@ const Nav = () => {
               />
             </Link>
           </div>
+
           <div className="w-full flex justify-end items-center">
             <img
               src={t.flagImage}
@@ -81,10 +82,11 @@ const Nav = () => {
               </option>
             </select>
           </div>
+
         </div>
       </div>
 
-      <div className="h-12  bg-[#08250D] w-full  sticky top-24 inset-x-0  flex justify-center !z-10">
+      <div className="h-12  bg-[#08250D] w-full  sticky top-0 sm:top-24 inset-x-0  flex justify-center !z-10">
         <div className="max-w-7xl mx-4 w-full h-full flex items-center text-white md:justify-center ">
           <div className="md:hidden flex items-center justify-items-start">
             <button

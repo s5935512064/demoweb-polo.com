@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLine } from "@fortawesome/free-brands-svg-icons";
 import { Link, animateScroll as scroll } from 'react-scroll'
 
-
 class Navopen extends React.Component {
   componentDidMount() {
     (function () {
@@ -157,7 +156,7 @@ class Navopen extends React.Component {
               </Link2>
             </div>
 
-            <NewsCarousel />
+            <NewsCarousel as="div" />
 
             <div className="w-full my-10 grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-3 ">
 

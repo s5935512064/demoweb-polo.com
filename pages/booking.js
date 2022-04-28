@@ -16,6 +16,9 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons'
 
 import axios from "axios";
 import moment from 'moment';
+import 'moment/locale/th';
+
+moment.locale('th');
 moment().format();
 
 const URL = "https://polomanage.ssdapp.net/booking_status.php?date";
@@ -35,11 +38,6 @@ const Booking = () => {
     return await axios.post(`${URL}=${date}`).then((res) => {
       if (res.data) {
         setTable(res.data)
-
-        console.log(table);
-        return (
-          <div> Have info </div>
-        )
       }
     });
   };
@@ -47,6 +45,7 @@ const Booking = () => {
   const handleChange = (newValue) => {
     setValue(newValue);
     getTable(moment(newValue).format('YYYY-MM-DD'))
+
   };
 
   useEffect(() => {
