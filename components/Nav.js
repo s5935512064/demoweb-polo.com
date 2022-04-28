@@ -53,7 +53,7 @@ const Nav = () => {
           </div>
 
           <div className="w-full  flex items-center">
-            <Link href="/test">
+            <Link href="/">
               <img
                 src="/assets/logo.png"
                 alt="logo"

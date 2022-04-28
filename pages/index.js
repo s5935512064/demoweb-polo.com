@@ -11,17 +11,20 @@ import { Link, animateScroll as scroll } from 'react-scroll'
 
 class Navopen extends React.Component {
   componentDidMount() {
+
     (function () {
-      $(window).scroll(function () {
-        var Num = $(window).scrollTop() / 500;
-        var Num2 = $(window).scrollTop() * 0.0004; // higher number for more zoom
+      window.onscroll = (function (e) {
+
+        var Num = (window.pageYOffset || document.documentElement.scrollTop) / 500;
+        var Num2 = (window.pageYOffset || document.documentElement.scrollTop) * .0004;
         var Num2mod = Num2 + 1;
-        var Num3 = $(window).scrollTop() * 0.2; // Title speed
-        var Num3mod = Num3 + 1;
-        return (
-          $(".shade").css("opacity", Num),
-          $(".heroEffects").css({ transform: "scale(" + Num2mod + ")" })
-        );
+
+        if (window.scrollY <= 500) {
+          return (
+            $(".shade").css("opacity", Num),
+            $(".heroEffects").css({ transform: "scale(" + Num2mod + ")" })
+          );
+        }
       });
     }.call(this));
   }
