@@ -1,3 +1,14 @@
+const test = () => {
+    return (
+        <div>
+            Enter
+        </div>
+    );
+}
+
+export default test;
+
+
 // import Head from "next/head";
 // import Layout from "../components/Layout";
 // import Link2 from "next/link";
