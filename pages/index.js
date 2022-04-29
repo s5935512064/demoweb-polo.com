@@ -85,7 +85,7 @@ class Navopen extends React.Component {
                         data-aos="fade-left"
                         data-aos-delay="300"
                         data-aos-duration="2000"
-                        className="bg-[#D90A0C] text-white p-3 w-48 inline-flex items-center justify-center"
+                        className="bg-[#1877F2] text-white p-3 w-48 inline-flex items-center justify-center"
                       >
                         <FontAwesomeIcon
                           icon={faFacebook}
@@ -104,7 +104,7 @@ class Navopen extends React.Component {
                         data-aos="fade-left"
                         data-aos-delay="300"
                         data-aos-duration="2000"
-                        className="bg-[#176724] text-white p-3 w-48 inline-flex items-center justify-center"
+                        className="bg-[#3ACE01] text-white p-3 w-48 inline-flex items-center justify-center"
                       >
                         <FontAwesomeIcon
                           icon={faLine}
