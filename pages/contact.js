@@ -67,7 +67,7 @@ const Contact = () => {
 
                 <div className="w-full h-full bg-white md:rounded-tr-[100px]  max-w-7xl  py-10 relative ">
                     <div className="absolute -top-5 -left-8  hidden md:block z-10">
-                        <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
+                        <img src="/assets/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
                     {/* Heading */}
                     <section className="flex w-full flex-col justify-center items-center  px-4 lg:px-10">

@@ -24,7 +24,7 @@ const News = () => {
     if (!data) {
         return (
             <div className="h-screen w-full flex items-center text-white flex-col bg-[#08250D] justify-center">
-                <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
+                <img src="/assets/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                 Loading ...</div>
         )
     }
@@ -68,7 +68,7 @@ const News = () => {
             <div className="h-full w-full relative flex justify-center">
                 <div className="w-full h-full bg-white md:rounded-tr-[100px]  max-w-7xl  py-10 relative ">
                     <div className="absolute -top-5 -left-8  hidden md:block z-10">
-                        <img src="http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
+                        <img src="/assets/Soccer_ball.svg" alt="ball" className="w-24 h-24 roll" />
                     </div>
 
                     <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
@@ -141,22 +141,17 @@ const News = () => {
 
 
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
-                                                <a target="_blank" rel="noopener noreferrer">
+                                                <Link href={item.permalink_url}>
+                                                    <a target="_blank" rel="noopener noreferrer">
 
-                                                    <Link href={item.permalink_url}>
-                                                        <a target="_blank" rel="noopener noreferrer">
-
-                                                            <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
-                                                        </a>
-                                                    </Link>
-                                                </a>
+                                                        <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                    </a>
+                                                </Link>
                                             </div>
                                         </div>
                                         <img src={item.full_picture} alt="feed3" className="object-cover w-full h-full object-top" />
                                     </div>
                                 )}
-
-
                         </div>
 
                         {/* News from facebook */}
@@ -177,38 +172,21 @@ const News = () => {
 
                                                 <div className=" font-light text-base flex justify-between  mt-2 items-center">
                                                     <p className="bg-black text-white px-2 bg-opacity-50">
-
-
                                                         {moment(item.created_time).format('LL')}
                                                     </p>
-
-
                                                     <Link href={item.permalink_url}>
                                                         <a target="_blank" rel="noopener noreferrer">
-
                                                             <button className="w-fit border-2 border-black px-2">อ่านเพิ่มเติม</button>
                                                         </a>
                                                     </Link>
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                     ))}
-
-
-
-
-
                             </div>
                         </div>
                     </section>
-
                 </div>
-
-
-
             </div >
         </Layout >
     );
