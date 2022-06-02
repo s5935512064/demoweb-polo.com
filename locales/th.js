@@ -31,6 +31,7 @@ export default {
         companyfacebook: "PoloFootballPark",
         companyIg: "polo_football_park",
         companyLine: "@polofootballpark",
+        polomapSrc: "/assets/polo_map.png"
     },
 
     corner: [

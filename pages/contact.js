@@ -150,12 +150,12 @@ const Contact = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                             <a
                                 data-fancybox="map"
-                                data-download-src="polo_map.png"
-                                href="/assets/polo_map.png"
+                                data-download-src={t.contact.polomapSrc}
+                                href={t.contact.polomapSrc}
                                 className="w-full h-full  relative overflow-hidden">
                                 <img
 
-                                    src="/assets/polo_map.png" alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-100 " />
+                                    src={t.contact.polomapSrc} alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-500 " />
                             </a>
                             <div className="flex h-full w-full  justify-center flex-col ">
 
