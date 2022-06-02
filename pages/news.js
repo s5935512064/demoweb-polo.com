@@ -11,7 +11,7 @@ import 'moment/locale/th';
 
 moment.locale('th');
 
-const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=id%2Cmessage%2Cmessage_tags%2Cfull_picture%2Cpermalink_url%2Ccreated_time&limit=15&access_token=EAAQUizb03jQBALDOmGxpVX6JOx3BMSgSGPs0RlYHAiVCEZBN5ZAbV9RVGWS3Q4EdmAONi82XyjpaIGjMNpZAAadBzYsZA2wcZCcx9GyjYLU0XFlgd8TPr306HqVGqV4PGMjDsyiudxYcxxCyD4LngMbOHJwagfgdyMApmUNUc1SaJaslqqzXT91v2ztVN0ZBwZD`;
+const URL = `https://iservices.ssdapp.net/get-feed-facebook`;
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -77,7 +77,7 @@ const News = () => {
                         </p>
                         {/* Highlight */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
-                            {data.data
+                            {data.feed.data
                                 .filter((p, index) => index == 0)
                                 .map((item, index) =>
                                     <div key={index} className="max-h-[300px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0">
@@ -102,16 +102,13 @@ const News = () => {
 
                                 )}
 
-                            {data.data
+                            {data.feed.data
                                 .filter((p, index) => index == 1)
                                 .map((item, index) =>
                                     <div key={index} className="max-h-[300px] w-full h-full relative">
 
                                         <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
-                                            <p className="font-light hidden xs:block text-base">
-
-                                                {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}
-                                            </p>
+                                            <ConditionalMessage data={item.message} />
 
 
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
@@ -129,16 +126,12 @@ const News = () => {
                                     </div>
                                 )}
 
-                            {data.data
+                            {data.feed.data
                                 .filter((p, index) => index == 2)
                                 .map((item, index) =>
                                     <div key={index} className="max-h-[300px] w-full h-full relative">
                                         <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
-                                            <p className="font-light hidden xs:block text-base">
-
-                                                {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}
-                                            </p>
-
+                                            <ConditionalMessage data={item.message} />
 
                                             <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
                                                 <Link href={item.permalink_url}>
@@ -158,7 +151,7 @@ const News = () => {
                         <div className="my-10 w-full h-full ">
                             <p className="text-2xl font-medium mb-2">Hot</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ">
-                                {data.data
+                                {data.feed.data
 
                                     .map((item, index) => (
 

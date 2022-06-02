@@ -7,6 +7,7 @@ const withTM = require("next-transpile-modules")(["@fancyapps/ui", "@emotion/rea
 
 const nextConfig = {
   reactStrictMode: false,
+
   images: {
     domains: ['scontent-kut2-2.xx.fbcdn.net'],
     formats: ['image/avif', 'image/webp'],

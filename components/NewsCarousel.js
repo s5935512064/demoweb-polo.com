@@ -11,19 +11,27 @@ import Link2 from "next/link";
 moment.locale('th');
 Carousel.Plugins.Autoplay = Autoplay;
 
-const URL = `https://graph.facebook.com/v13.0/PoloFootballPark/feed?fields=id%2Cmessage%2Cmessage_tags%2Cfull_picture%2Cpermalink_url%2Ccreated_time&limit=15&access_token=EAAQUizb03jQBALDOmGxpVX6JOx3BMSgSGPs0RlYHAiVCEZBN5ZAbV9RVGWS3Q4EdmAONi82XyjpaIGjMNpZAAadBzYsZA2wcZCcx9GyjYLU0XFlgd8TPr306HqVGqV4PGMjDsyiudxYcxxCyD4LngMbOHJwagfgdyMApmUNUc1SaJaslqqzXT91v2ztVN0ZBwZD`;
+const URL = `https://iservices.ssdapp.net/get-feed-facebook`;
 
 
 const NewsCarousel = () => {
 
-  const fetcher = async (url) => await axios.get(url).then((res) => res.data);
+  const fetcher = async (url) => await axios.get(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  }).then((res) => res.data).catch(function (err) {
+    console.log(err);
+  });
+
 
   const { data, error } = useSWR(URL, fetcher);
+
 
   useEffect(() => {
     setTimeout(() => {
       const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
-
         Autoplay: {
           timeout: 1000,
           hoverPause: true,
@@ -37,7 +45,7 @@ const NewsCarousel = () => {
     <>
       {!data ? <div id="mainCarousel">Loading..</div> : <div id="mainCarousel" className="carousel  mx-auto py-5 max-h-[300px] sm:max-h-[400px] overflow-hidden ">
         <div className="carousel__viewport">
-          {data.data.map((item, index) => (
+          {data.feed.data.map((item, index) => (
             <div key={index} className="carousel__slide md:!w-[400px] min-h-[250px] sm:min-h-[350px] md:mx-4 rounded shadow">
               <Image
                 loader={() => item.full_picture}
