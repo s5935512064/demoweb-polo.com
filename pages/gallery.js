@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import '@fancyapps/ui/dist/carousel.css';
 import FlexMasonry from '../node_modules/flexmasonry/src/flexmasonry'
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
-
+import Image from 'next/image'
 
 const images = [
     {
@@ -177,12 +177,13 @@ const Gallery = () => {
                                         >
 
                                             <div className="w-full h-full overflow-hidden absolute">
-
-                                                <img
-                                                    className="object-cover w-full h-full transition-transform duration-100 absolute hover:scale-110"
+                                                <Image
                                                     src={item.src}
                                                     alt={item.id}
-                                                />
+                                                    layout="fill"
+                                                    objectFit="cover"
+                                                    className="transition-transform duration-100 absolute hover:scale-110" />
+
                                             </div>
 
 

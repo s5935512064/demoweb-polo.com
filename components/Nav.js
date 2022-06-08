@@ -2,6 +2,7 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from 'next/image'
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import en from "../locales/en";
@@ -38,7 +39,7 @@ const Nav = () => {
 
   return (
     <AnimateSharedLayout>
-      <div className="w-full h-24  bg-[url('/assets/header.png')] sticky sm:top-0 inset-x-0 flex justify-center !z-50">
+      <div className="w-full h-24  bg-[url('/assets/header.webp')] sticky sm:top-0 inset-x-0 flex justify-center !z-50">
         <div className="w-full bg-[#08250D] absolute h-full opacity-30" />
         <div className="max-w-7xl px-4 w-full h-full flex items-center text-white justify-between absolute">
           <div className="w-full hidden sm:flex items-center">
@@ -52,22 +53,28 @@ const Nav = () => {
             </div>
           </div>
 
-          <div className="w-full  flex items-center">
-            <Link href="/">
-              <img
+          <Link href="/">
+            <div className="h-20 w-full  flex items-center relative">
+              <Image
                 src="/assets/logo.png"
                 alt="logo"
-                className="h-20 w-full object-contain object-center cursor-pointer"
-              />
-            </Link>
-          </div>
+                layout="fill"
+                objectFit="contain"
+                className="cursor-pointer" />
+            </div>
+          </Link>
 
           <div className="w-full flex justify-end items-center">
-            <img
-              src={t.flagImage}
-              alt="flag"
-              className="w-8 h-8 object-contain mr-1"
-            />
+            <div className="w-8 h-8 relative mr-1">
+              <Image
+                src={t.flagImage}
+                alt="flag"
+                layout="fill"
+                objectFit="contain"
+                className="w-8 h-8" />
+
+            </div>
+
             <select
               name="changeLocal"
               onChange={changeLanguage}

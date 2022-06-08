@@ -8,6 +8,7 @@ import NewsCarousel from "../components/NewsCarousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLine } from "@fortawesome/free-brands-svg-icons";
 import { Link, animateScroll as scroll } from 'react-scroll'
+import Image from 'next/image'
 
 class Navopen extends React.Component {
   componentDidMount() {
@@ -50,10 +51,8 @@ class Navopen extends React.Component {
           <meta name="author" content="POLO Football Park @ Siam Sindhorn" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-
         <section className="min-h-screen w-full h-full relative  overflow-hidden top-0 left-0">
-          <div className="heroEffects bg-[url('/assets/hero.jpg')] bg-cover bg-center fixed min-h-screen w-full h-full">
+          <div className="heroEffects bg-[url('/assets/hero.webp')] bg-cover bg-center fixed min-h-screen w-full h-full">
             <div className="bg-gradient-to-r from-[#08250D] absolute w-full h-full opacity-75" />
             <div className="w-full h-full flex justify-center absolute">
               <div className="max-w-7xl px-4 w-full h-full flex flex-col text-white pt-28 sm:pt-52 gap-5 z-30 ">
@@ -80,7 +79,6 @@ class Navopen extends React.Component {
                 <div className="inline-flex gap-3 flex-col xs:flex-row">
                   <Link2 href="https://www.facebook.com/PoloFootballPark">
                     <a target="_blank" rel="noopener noreferrer">
-
                       <button
                         data-aos="fade-left"
                         data-aos-delay="300"
@@ -99,7 +97,6 @@ class Navopen extends React.Component {
                   </Link2>
                   <Link2 href="https://page.line.me/ewb3453i?openQrModal=true">
                     <a target="_blank" rel="noopener noreferrer">
-
                       <button
                         data-aos="fade-left"
                         data-aos-delay="300"
@@ -125,9 +122,7 @@ class Navopen extends React.Component {
                 >
 
                   <div className="arrow animate-bounce cursor-pointer">
-
                     <svg height="25" width="50">
-
                       <polygon
                         points="0,0 25,10 50,0 25,25"
                         fill="rgba(255,255,255)"
@@ -139,7 +134,7 @@ class Navopen extends React.Component {
                 </Link>
               </div>
             </div>
-            <div className="shade "></div>
+            <div className="shade" />
           </div>
         </section>
 
@@ -163,39 +158,44 @@ class Navopen extends React.Component {
 
             <div className="w-full my-10 grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-3 ">
 
-              <img src="/assets/banner1.jpeg" alt="banner" className="object-contain w-full md:col-span-2 rounded hover:animate-pulse duration-200" />
+              <div className="h-full w-full md:col-span-2 rounded relative">
+                <Image
+                  src="/assets/banner.jpg"
+                  alt="banner"
+                  layout="responsive"
+                  width={100}
+                  height={55}
+                  objectFit="cover"
+                  className=" hover:animate-pulse duration-200" />
 
-              <img src="/assets/banner3.jpg" alt="banner" className="object-cover w-full rounded hover:animate-pulse duration-200" />
-              <img src="/assets/banner4.png" alt="banner" className="object-cover w-full h-full rounded hover:animate-pulse duration-200" />
+              </div>
+
+              <div className="h-full w-full rounded relative">
+                <Image
+                  src="/assets/banner3.jpg"
+                  alt="banner3"
+                  layout="responsive"
+                  width={100}
+                  height={80}
+                  objectFit="cover"
+                  className="hover:animate-pulse duration-200" />
+
+              </div>
+
+              <div className="h-full w-full rounded relative">
+                <Image
+                  src="/assets/banner4.png"
+                  alt="banner4"
+                  layout="responsive"
+                  width={100}
+                  height={80}
+                  objectFit="cover"
+                  className=" hover:animate-pulse duration-200" />
+
+              </div>
+
             </div>
 
-
-
-
-            <div className=" w-full grid justify-items-center justify-center gap-3 mt-2 items-center overflow-hidden grid-cols-2 sm:flex">
-
-              <img
-                src="/assets/siamsindhorn.jpeg"
-                alt="glass"
-                className="w-36 sm:w-48 h-full object-contain"
-              />
-              <img
-                src="/assets/download 11(1).png"
-                alt="srijul"
-                className="w-28 sm:w-36 h-full  object-contain"
-              />
-              <img
-                src="/assets/256527691_3053998368171556_3431729866755465441_n.jpg"
-                alt="eifel"
-                className="w-28 sm:w-36 h-full object-contain"
-              />
-              <img
-                src="https://theoldsiam.co.th/images/logoweb-1528342110.png"
-                alt="theold"
-                className="w-28 sm:w-36 h-full object-contain"
-              />
-
-            </div>
           </div>
         </section>
       </Layout>
@@ -205,7 +205,6 @@ class Navopen extends React.Component {
 
 const Home = (props) => {
   const router = useRouter();
-
   return <Navopen {...props} route={router} />;
 };
 

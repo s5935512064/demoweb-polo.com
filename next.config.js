@@ -9,7 +9,7 @@ const nextConfig = {
   reactStrictMode: false,
 
   images: {
-    domains: ['scontent-kut2-2.xx.fbcdn.net'],
+    domains: ['scontent-kut2-2.xx.fbcdn.net', 'polofootballpark.com', 'scontent.fbkk10-1.fna.fbcdn.net'],
     formats: ['image/avif', 'image/webp'],
   },
   i18n: {

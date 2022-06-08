@@ -3,6 +3,7 @@ import Layout from "../../../components/Layout"
 import { useRouter } from 'next/router'
 import en from '../../../locales/en'
 import th from '../../../locales/th'
+import Image from 'next/image'
 
 const Index = () => {
 
@@ -34,8 +35,14 @@ const Index = () => {
                             .map((item, index) =>
                                 <div key={index} className="w-full md:w-2/3 h-full flex flex-col my-5 md:my-10  ">
 
-                                    <div className="max-h-96 w-full flex justify-center relative overflow-hidden my-2">
-                                        <img src={item.img} alt="corner" className="object-cover w-full h-full" />
+                                    <div className="max-h-96 w-full h-[350px] flex justify-center relative overflow-hidden my-2">
+                                        <Image
+                                            src={item.img}
+                                            alt="cornerId"
+                                            layout="fill"
+                                            objectFit="cover"
+                                        />
+
 
                                     </div>
                                     <p className="text-3xl font-medium  ">

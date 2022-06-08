@@ -9,6 +9,7 @@ import { faFacebook, faInstagram, faLine } from '@fortawesome/free-brands-svg-ic
 import en from '../locales/en'
 import th from '../locales/th'
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
+import Image from 'next/image'
 
 
 const Contact = () => {
@@ -152,10 +153,19 @@ const Contact = () => {
                                 data-fancybox="map"
                                 data-download-src={t.contact.polomapSrc}
                                 href={t.contact.polomapSrc}
-                                className="w-full h-full  relative overflow-hidden">
-                                <img
+                                className="w-full h-full relative overflow-hidden">
 
-                                    src={t.contact.polomapSrc} alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-500 " />
+                                <Image
+                                    src={t.contact.polomapSrc}
+                                    alt="map"
+                                    layout="responsive"
+                                    width={100}
+                                    height={100}
+                                    objectFit="cover"
+                                    className="hover:scale-110 transition-transform duration-500" />
+                                {/* <img
+
+                                    src={t.contact.polomapSrc} alt="map" className="object-cover object-center w-full h-full hover:scale-110 transition-transform duration-500 " /> */}
                             </a>
                             <div className="flex h-full w-full  justify-center flex-col ">
 

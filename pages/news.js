@@ -8,8 +8,13 @@ import axios from "axios";
 import useSWR, { mutate } from "swr";
 import moment from 'moment'
 import 'moment/locale/th';
+import Image from 'next/image'
 
 moment.locale('th');
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+}
 
 const URL = `https://iservices.ssdapp.net/get-feed-facebook`;
 
@@ -78,73 +83,34 @@ const News = () => {
                         {/* Highlight */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
                             {data.feed.data
-                                .filter((p, index) => index == 0)
-                                .map((item, index) =>
-                                    <div key={index} className="max-h-[300px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0">
-                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
+                                .filter((p, index) => p.message != null)
+                                .map((item, index) => {
+                                    if (index >= 3) return null
 
+                                    return (
 
-                                            <ConditionalMessage data={item.message} />
+                                        <div key={index} className={classNames(index == 0 ? "max-h-[300px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0" : "max-h-[300px] w-full h-full relative")}>
 
+                                            <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
 
+                                                <ConditionalMessage data={item.message} />
 
-                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
+                                                <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
 
-                                                <Link href={item.permalink_url}>
-                                                    <a target="_blank" rel="noopener noreferrer">
-                                                        <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
-                                                    </a>
-                                                </Link>
+                                                    <Link href={item.permalink_url}>
+                                                        <a target="_blank" rel="noopener noreferrer">
+                                                            <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
+                                                        </a>
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <img src={item.full_picture} alt="feed1" className="object-cover w-full h-full object-top" />
-                                    </div>
 
+                                            <img src={item.full_picture} alt="feed1" className="object-cover w-full h-full object-top" />
+                                        </div>
+                                    )
+                                }
                                 )}
 
-                            {data.feed.data
-                                .filter((p, index) => index == 1)
-                                .map((item, index) =>
-                                    <div key={index} className="max-h-[300px] w-full h-full relative">
-
-                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
-                                            <ConditionalMessage data={item.message} />
-
-
-                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
-
-                                                <Link href={item.permalink_url}>
-                                                    <a target="_blank" rel="noopener noreferrer">
-
-                                                        <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </div>
-
-                                        <img src={item.full_picture} alt="feed4" className="object-cover w-full h-full object-top " />
-                                    </div>
-                                )}
-
-                            {data.feed.data
-                                .filter((p, index) => index == 2)
-                                .map((item, index) =>
-                                    <div key={index} className="max-h-[300px] w-full h-full relative">
-                                        <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
-                                            <ConditionalMessage data={item.message} />
-
-                                            <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
-                                                <Link href={item.permalink_url}>
-                                                    <a target="_blank" rel="noopener noreferrer">
-
-                                                        <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
-                                                    </a>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <img src={item.full_picture} alt="feed3" className="object-cover w-full h-full object-top" />
-                                    </div>
-                                )}
                         </div>
 
                         {/* News from facebook */}
@@ -152,7 +118,7 @@ const News = () => {
                             <p className="text-2xl font-medium mb-2">Hot</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ">
                                 {data.feed.data
-
+                                    .filter(p => p.message != null)
                                     .map((item, index) => (
 
                                         <div key={index} className="grid grid-cols-1 lg:grid-cols-3 shadow-sm  lg:h-[200px] h-full">

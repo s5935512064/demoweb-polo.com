@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import '@fancyapps/ui/dist/carousel.css';
-
+import Image from 'next/image'
 import en from '../../locales/en'
 import th from '../../locales/th'
 
@@ -45,8 +45,18 @@ const Corner = () => {
                         <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 w-full my-5 md:my-10">
                             {t.corner.map((item, index) => (
                                 <div key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-3 justify-items-center w-full">
-                                    <div className=" w-full">
-                                        <img src={item.img} alt="profile" className="object-cover w-full h-full" />
+                                    <div className=" w-full relative">
+
+                                        <Image
+                                            src={item.img}
+                                            alt="corner"
+                                            layout="fill"
+                                            objectFit="cover"
+                                        />
+
+
+
+                                        {/* <img src={item.img} alt="profile" className="object-cover w-full h-full" /> */}
                                     </div>
                                     <div className=" w-full gap-1 flex flex-col ">
 

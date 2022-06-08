@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField';
 import Parse from 'html-react-parser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
-
+import Image from 'next/image'
 
 import axios from "axios";
 import moment from 'moment';
@@ -84,6 +84,7 @@ const Booking = () => {
               className="w-24 h-24 roll"
             />
           </div>
+
           <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10">
             <p className="text-3xl font-medium md:hidden">
               {locale === "en" ? " Rate&Booking" : "ราคาและการจอง"}
@@ -112,6 +113,7 @@ const Booking = () => {
                 <div className="">
                   {parse(table)}
                 </div>
+
               </div>
               <div className="sm:col-span-2  ">
                 <div className="mt-8 flex gap-3 w-full">
