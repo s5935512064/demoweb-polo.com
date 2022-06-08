@@ -81,7 +81,7 @@ const News = () => {
                             {locale == "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
                         </p>
                         {/* Highlight */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-3 mt-10 ">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 w-full h-full gap-2 mt-10 ">
                             {data.feed.data
                                 .filter((p, index) => p.message != null)
                                 .map((item, index) => {
@@ -89,11 +89,14 @@ const News = () => {
 
                                     return (
 
-                                        <div key={index} className={classNames(index == 0 ? "max-h-[300px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0" : "max-h-[300px] w-full h-full relative")}>
+                                        <div key={index} className={classNames(index == 0 ? "max-h-[250px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0" : "max-h-[300px] w-full h-full relative")}>
 
                                             <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
 
-                                                <ConditionalMessage data={item.message} />
+
+                                                <p className="font-light text-sm overflow-hidden">  {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}  </p>
+
+                                                {/* <ConditionalMessage data={item.message} /> */}
 
                                                 <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
 
