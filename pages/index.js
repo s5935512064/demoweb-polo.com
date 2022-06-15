@@ -55,12 +55,13 @@ class Navopen extends React.Component {
           <div className="heroEffects bg-[url('/assets/hero.webp')] bg-cover bg-center fixed min-h-screen w-full h-full">
             <div className="bg-gradient-to-r from-[#08250D] absolute w-full h-full opacity-75" />
             <div className="w-full h-full flex justify-center absolute">
-              <div className="max-w-7xl px-4 w-full h-full flex flex-col text-white pt-28 sm:pt-52 gap-5 z-30 ">
+
+              <div className="max-w-7xl px-4 w-full h-[80vh]  flex flex-col text-white  justify-center gap-5 z-30 ">
                 <p
                   data-aos="fade-left"
                   data-aos-delay="100"
                   data-aos-duration="2000"
-                  className="text-5xl font-medium"
+                  className="text-4xl sm:text-5xl font-medium"
                 >
                   {locale === "en"
                     ? "The Best Soccer Field in CBD"
@@ -70,19 +71,20 @@ class Navopen extends React.Component {
                   data-aos="fade-left"
                   data-aos-delay="200"
                   data-aos-duration="2000"
-                  className="text-xl whitespace-pre-line font-light"
+                  className="text-base sm:text-xl whitespace-pre-line font-light"
                 >
                   {locale === "en"
                     ? " Indoor Soccer Field Turf,In the Central Business District,(CBD) \n Conveniently access from Wireless Road or Rama IV Road."
                     : "สนามฟุตบอลในร่มหญ้าเทียมแห่งแรกในย่านธุรกิจใจกลางเมืองเดินทางสะดวก\nเข้าออกได้จากซอยโปโลด้านถนนวิทยุ หรือ ซอยปลูกจิต ถนนพระรามสี่"}
                 </p>
-                <div className="inline-flex gap-3 flex-col xs:flex-row">
+                <div data-aos="fade-left"
+                  data-aos-delay="300"
+                  data-aos-duration="2000"
+                  className="inline-flex gap-3 flex-col xs:flex-row">
                   <Link2 href="https://www.facebook.com/PoloFootballPark">
                     <a target="_blank" rel="noopener noreferrer">
                       <button
-                        data-aos="fade-left"
-                        data-aos-delay="300"
-                        data-aos-duration="2000"
+
                         className="bg-[#1877F2] text-white p-3 w-48 inline-flex items-center justify-center"
                       >
                         <FontAwesomeIcon
@@ -98,9 +100,7 @@ class Navopen extends React.Component {
                   <Link2 href="https://page.line.me/ewb3453i?openQrModal=true">
                     <a target="_blank" rel="noopener noreferrer">
                       <button
-                        data-aos="fade-left"
-                        data-aos-delay="300"
-                        data-aos-duration="2000"
+
                         className="bg-[#3ACE01] text-white p-3 w-48 inline-flex items-center justify-center"
                       >
                         <FontAwesomeIcon
@@ -133,6 +133,7 @@ class Navopen extends React.Component {
                   </div>
                 </Link>
               </div>
+
             </div>
             <div className="shade" />
           </div>
@@ -142,6 +143,7 @@ class Navopen extends React.Component {
           <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]"></div>
           <div id="section1" className="w-full  bg-white rounded-t-2xl  max-w-7xl  mt-10 px-4 lg:px-10 pt-10 relative ">
             <div className="flex w-full justify-between mb-5 border-b-[1px] border-black pb-2">
+              <button type="button" data-cc="c-settings">Show cookie settings</button>
               <p className="text-2xl font-medium">
                 {locale === "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
               </p>

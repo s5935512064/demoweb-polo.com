@@ -1,7 +1,7 @@
 const withPlugins = require("next-compose-plugins");
 const webpack = require("webpack");
 const withImages = require('next-images')
-const withTM = require("next-transpile-modules")(["@fancyapps/ui", "@emotion/react"]); // pass the modules you would like to see transpiled
+const withTM = require("next-transpile-modules")(["@fancyapps/ui", "@emotion/react", "vanilla-cookieconsent"]); // pass the modules you would like to see transpiled
 /** @type {import('next').NextConfig} */
 
 
