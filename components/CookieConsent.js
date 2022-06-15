@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 
 
-const cookieconsent = () => {
+const CookieConsent = () => {
 
 
 
@@ -151,4 +151,4 @@ const cookieconsent = () => {
     return null
 }
 
-export default cookieconsent;
+export default CookieConsent;
