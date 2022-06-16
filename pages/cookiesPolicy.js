@@ -86,7 +86,7 @@ const CookiesPolicy = () => {
 
                                 <li> <span className="w-8 table-cell">(ฌ)</span><span className="table-cell"><span className="font-normal break-all">ข้อมูลพนักงาน</span> เช่น ข้อมูลประกันสังคม ข้อมูลภาษี ประวัติการศึกษา ประวัติการทำงาน อัตราเงินเดือน ผลการปฏิบัติงาน ข้อมูลเวลาการทำงานและการลา เป็นต้น</span></li>
                                 <li> <span className="w-8 table-cell">(ญ)</span><span className="table-cell"><span className="font-normal break-all">ข้อมูลเพื่อการรักษาความปลอดภัย</span> เช่น ข้อมูลจากกล้องวงจรปิด ทะเบียนรถ เป็นต้น</span></li>
-                                <li> <span className="w-8 table-cell">(ฎ)</span><span className="table-cell"><span className="font-normal break-all">ข้อมูลผู้มี<span className="text-red-500">ส่วนได้ส่วนเสีย</span></span> เช่น ข้อมูลสัดส่วนการถือหุ้น ข้อมูลในหนังสือมอบฉันทะ ใบหุ้น หุ้นกู้ เป็นต้น</span></li>
+                                <li> <span className="w-8 table-cell">(ฎ)</span><span className="table-cell"><span className="font-normal break-all">ข้อมูลผู้มีส่วนได้ส่วนเสีย</span> เช่น ข้อมูลสัดส่วนการถือหุ้น ข้อมูลในหนังสือมอบฉันทะ ใบหุ้น หุ้นกู้ เป็นต้น</span></li>
 
 
                             </ul>
@@ -121,7 +121,7 @@ const CookiesPolicy = () => {
                                 <li> <span className="w-8 table-cell">3.3</span><span className="table-cell">ช่องทางของบุคคลที่สาม เช่น ตัวแทน คู่ค้า หรือผู้ให้บริการอื่น หรือพันธมิตรทางธุรกิจ เช่น Facebook, WeChat, Google, Line, Whatsapp, Instagram</span></li>
                             </ul>
 
-                            <p className="break-words whitespace-pre-line font-light text-sm sm:text-base indent-6 text-justify mb-2">บริษัทอาจรวบรวมข้อมูลส่วนบุคคลจากแหล่งอื่นเช่นกัน เช่น จากสมาชิกในครอบครัวหรือบุคคลที่เกี่ยวข้องของท่าน  บุคคลอ้างอิง บริษัทการตลาด ตัวแทนจัดหางาน ลูกค้าองค์กร ผู้ขาย หรือผู้มี<span className="text-red-500">ส่วนได้ส่วนเสีย</span> และแหล่งข้อมูลอื่นๆ ที่เปิดเผยต่อสาธารณะในฐานข้อมูล Offline และ Online</p>
+                            <p className="break-words whitespace-pre-line font-light text-sm sm:text-base indent-6 text-justify mb-2">บริษัทอาจรวบรวมข้อมูลส่วนบุคคลจากแหล่งอื่นเช่นกัน เช่น จากสมาชิกในครอบครัวหรือบุคคลที่เกี่ยวข้องของท่าน  บุคคลอ้างอิง บริษัทการตลาด ตัวแทนจัดหางาน ลูกค้าองค์กร ผู้ขาย หรือผู้มีส่วนได้ส่วนเสีย และแหล่งข้อมูลอื่นๆ ที่เปิดเผยต่อสาธารณะในฐานข้อมูล Offline และ Online</p>
 
                             <h1 className="text-lg  mb-2">4. วัตถุประสงค์ในการเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคล</h1>
                             <p className="break-words whitespace-pre-line font-light text-sm sm:text-base indent-6 text-justify mb-2">บริษัทอาจเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของท่านเท่าที่จำเป็น ตามที่กฎหมายกำหนด เพื่อวัตถุประสงค์ และพื้นฐานที่ถูกต้องตามกฎหมายที่ระบุไว้ต่อไปนี้ รวมถึงวัตถุประสงค์ใดๆ และพื้นฐานทางกฎหมายที่ระบุไว้ในนโยบายคุ้มครองข้อมูลส่วนบุคคล วัตถุประสงค์อื่นใดที่ท่านให้ความยินยอมแก่บริษัทเป็นครั้งคราว และวัตถุประสงค์อื่นใดตามที่ได้รับอนุญาตหรือจำเป็นตาม PDPA และ/หรือกฎหมายที่บังคับใช้ </p>
@@ -169,7 +169,7 @@ const CookiesPolicy = () => {
                                 <li><span className="w-8 table-cell">4.29</span> <span className="table-cell">เพื่อการสรรหาตำแหน่งงานที่ว่างในปัจจุบันและอนาคต</span></li>
                                 <li><span className="w-8 table-cell">4.30</span> <span className="table-cell">เพื่อสื่อสารกับข้อมูลอ้างอิงที่ท่านให้ไว้กับบริษัท เช่น อดีตนายจ้าง เพื่อตรวจสอบประวัติก่อนทำข้อตกลงการจ้างงานใดๆ กับบริษัท</span></li>
                                 <li><span className="w-8 table-cell">4.31</span> <span className="table-cell">เพื่อติดต่อบุคคลที่เกี่ยวข้องในกรณีฉุกเฉิน</span></li>
-                                <li><span className="w-8 table-cell">4.32</span> <span className="table-cell">เข้าทำสัญญาหรือสื่อสารกับลูกค้าองค์กร คู่ค้า หรือผู้มี<span className="text-red-500">ส่วนได้ส่วนเสีย</span>โดยการผ่านตัวแทน เช่น กรรมการหรือพนักงาน เป็นต้น</span></li>
+                                <li><span className="w-8 table-cell">4.32</span> <span className="table-cell">เข้าทำสัญญาหรือสื่อสารกับลูกค้าองค์กร คู่ค้า หรือผู้มีส่วนได้ส่วนเสียโดยการผ่านตัวแทน เช่น กรรมการหรือพนักงาน เป็นต้น</span></li>
                                 <li><span className="w-8 table-cell">4.33</span> <span className="table-cell">เพื่อถ่ายภาพหรือวิดีโอของท่านสำหรับกิจกรรมใดๆ ที่จัดขึ้นโดยบริษัท และเผยแพร่ หรือโฆษณาภาพหรือวิดีโอดังกล่าวบนเว็บไซต์และแอปพลิเคชันของบริษัทหรือแพลตฟอร์มอื่นๆ </span></li>
                                 <li><span className="w-8 table-cell">4.34</span> <span className="table-cell">เพื่อแบ่งปันข้อมูลส่วนบุคคลของท่านตามความจำเป็นเพื่อวัตถุประสงค์ในการควบรวมกิจการ การปรับโครงสร้างองค์กรธุรกิจ การล้มละลาย การฟื้นฟู และการดำเนินการที่คล้ายคลึงกันบริษัท</span></li>
                                 <li><span className="w-8 table-cell">4.35</span> <span className="table-cell">เพื่อประเมินความเสี่ยงที่อาจเกิดขึ้นจากการลงทุน</span></li>
@@ -187,7 +187,7 @@ const CookiesPolicy = () => {
 
                                 <li> <span className="w-8 table-cell">5.2</span><span className="table-cell">พนักงานของบริษัทที่เกี่ยวข้อง</span></li>
 
-                                <li> <span className="w-8 table-cell">5.3</span><span className="table-cell">ผู้มี<span className="text-red-500">ส่วนได้ส่วนเสีย</span>ของบริษัท</span></li>
+                                <li> <span className="w-8 table-cell">5.3</span><span className="table-cell">ผู้มีส่วนได้ส่วนเสียของบริษัท</span></li>
 
                                 <li> <span className="w-8 table-cell">5.4</span><span className="table-cell">ตัวแทน นายหน้า ผู้รับเหมา ผู้ให้บริการ คู่สัญญาของบริษัทที่มีหน้าที่ดำเนินการให้บริการใดที่จำเป็นต่อการใช้ข้อมูลส่วนบุคคล ที่ปรึกษาด้านต่างๆ เช่น ผู้ให้คำปรึกษาด้านกฎหมาย ผู้สอบบัญชี ที่ปรึกษาการทางธุรกิจ</span></li>
 
