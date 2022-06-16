@@ -10,7 +10,7 @@ const nextConfig = {
 
   images: {
     domains: ['scontent-kut2-2.xx.fbcdn.net', 'polofootballpark.com', 'scontent.fbkk10-1.fna.fbcdn.net', "scontent-kut2-1.xx.fbcdn.net"],
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/avif', 'image/webp', 'image/png', 'image/jpg', 'image/jpeg'],
   },
   i18n: {
     // providing the locales supported by your application
