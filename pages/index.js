@@ -52,7 +52,7 @@ class Navopen extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <section className="min-h-screen w-full h-full relative  overflow-hidden top-0 left-0">
-          <div className="heroEffects bg-[url('/assets/hero.webp')] bg-cover bg-center fixed min-h-screen w-full h-full">
+          <div className="heroEffects bg-[url('/assets/hero2.jpg')] bg-cover bg-center fixed min-h-screen w-full h-full">
             <div className="bg-gradient-to-r from-[#08250D] absolute w-full h-full opacity-75" />
             <div className="w-full h-full flex justify-center absolute">
 
@@ -82,7 +82,7 @@ class Navopen extends React.Component {
                   data-aos-duration="2000"
                   className="inline-flex gap-3 flex-col xs:flex-row">
                   <Link2 href="https://www.facebook.com/PoloFootballPark">
-                    <a target="_blank" rel="noopener noreferrer">
+                    <a aria-label="facebook" target="_blank" rel="noopener noreferrer">
                       <button
 
                         className="bg-[#1877F2] text-white p-3 w-48 inline-flex items-center justify-center"
@@ -98,7 +98,7 @@ class Navopen extends React.Component {
                     </a>
                   </Link2>
                   <Link2 href="https://page.line.me/ewb3453i?openQrModal=true">
-                    <a target="_blank" rel="noopener noreferrer">
+                    <a aria-label="line" target="_blank" rel="noopener noreferrer">
                       <button
 
                         className="bg-[#3ACE01] text-white p-3 w-48 inline-flex items-center justify-center"
@@ -139,11 +139,11 @@ class Navopen extends React.Component {
           </div>
         </section>
 
-        <section className="h-full w-full  flex justify-center relative bg-[url('/assets/wepik-2022321-93143.png')] bg-fixed bg-cover  ">
+        <section className="h-full w-full  flex justify-center relative bg-[url('/assets/background.jpg')] bg-fixed bg-cover  ">
           <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]"></div>
           <div id="section1" className="w-full  bg-white rounded-t-2xl  max-w-7xl  mt-10 px-4 lg:px-10 pt-10 relative ">
             <div className="flex w-full justify-between mb-5 border-b-[1px] border-black pb-2">
-              <button type="button" data-cc="c-settings">Show cookie settings</button>
+
               <p className="text-2xl font-medium">
                 {locale === "en" ? "News&Event" : "ข่าวสารและกิจกรรม"}
               </p>

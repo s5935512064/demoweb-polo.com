@@ -62,7 +62,7 @@ const NewsCarousel = () => {
 
                 <div className="inset-0 absolute bg-black text-white justify-center items-center flex opacity-0 hover:opacity-90 duration-200">
                   <Link2 href={item.permalink_url}>
-                    <a target="_blank" rel="noopener noreferrer">
+                    <a aria-label="news" target="_blank" rel="noopener noreferrer">
                       <button className="!z-50 h-32 w-32  ">
 
                         อ่านเพิ่มเติม

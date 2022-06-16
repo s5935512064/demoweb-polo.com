@@ -34,7 +34,6 @@ const Contact = () => {
                     "close",
                 ],
             },
-
             Image: {
                 zoom: false,
                 click: false,
@@ -150,9 +149,10 @@ const Contact = () => {
                     <section className="w-full h-full px-4 lg:px-10 my-5 md:my-10">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                             <a
-                                data-fancybox="map"
-                                data-download-src={t.contact.polomapSrc}
-                                href={t.contact.polomapSrc}
+                                data-fancybox
+                                data-download-src={locale === "en" ? "/assets/PoloMap.jpeg" : "/assets/polo_map.png"}
+                                href={locale === "en" ? "/assets/PoloMap.jpeg" : "/assets/polo_map.png"}
+
                                 className="w-full h-full relative overflow-hidden">
 
                                 <Image
@@ -179,7 +179,7 @@ const Contact = () => {
                                         <FontAwesomeIcon icon={faPhone} className="w-5 h-5 mr-4" />
                                         {t.contact.companyPhone}</p>
 
-                                    <a href="mailto:info@polofootballpark.com" target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
+                                    <a aria-label="email" href="mailto:info@polofootballpark.com" target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-4">
                                         <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 mr-4" />
                                         {t.contact.companyEmail}</a>
 
@@ -188,21 +188,21 @@ const Contact = () => {
                                         {t.contact.companySite}</p>
 
                                     <Link href="https://www.facebook.com/PoloFootballPark">
-                                        <a target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a aria-label="facebook" target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faFacebook} className="w-5 h-5 mr-4" />
                                             {t.contact.companyfacebook}</a>
                                     </Link>
 
                                     <Link href="https://www.instagram.com/polo_football_park/">
 
-                                        <a target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a aria-label="instagram" target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faInstagram} className="w-5 h-5 mr-4" />
                                             {t.contact.companyIg}</a>
                                     </Link>
 
                                     <Link href="https://page.line.me/ewb3453i?openQrModal=true">
 
-                                        <a target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
+                                        <a aria-label="line" target="_blank" rel="noopener noreferrer" className="text-sm whitespace-pre-line font-light xs:text-base inline-flex items-center mt-2">
                                             <FontAwesomeIcon icon={faLine} className="w-5 h-5 mr-4" />
                                             {t.contact.companyLine}</a>
                                     </Link>

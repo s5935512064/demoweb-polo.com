@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
                 exit="exit" // Exit state (used later) to variants.exit
                 transition={{ type: 'linear', duration: 1 }} // Set the transition to linear
             >
-                <div className="min-h-screen w-full h-full bg-fixed bg-[url('/assets/background.webp')] bg-cover">
+                <div className="min-h-screen w-full h-full bg-fixed bg-[url('/assets/background.jpg')] bg-cover overflow-hidden">
                     <div className="w-full h-full absolute  bg-gradient-to-b from-[#08250D]" />
 
                     {children}

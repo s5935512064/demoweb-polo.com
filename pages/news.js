@@ -89,9 +89,9 @@ const News = () => {
 
                                     return (
 
-                                        <div key={index} className={classNames(index == 0 ? "max-h-[250px] sm:max-h-[614px] col-span-2 sm:row-span-2 w-full h-full sm:col-span-2 relative m-0" : "max-h-[300px] w-full h-full relative")}>
+                                        <div key={index} className={classNames(index == 0 ? "h-[250px] sm:h-[614px] col-span-2 sm:row-span-2 w-full  sm:col-span-2 relative m-0" : "h-[300px] w-full  relative")}>
 
-                                            <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200">
+                                            <div className="absolute bottom-0 p-5 text-white bg-gradient-to-t from-black w-full h-2/3 flex justify-end flex-col hover:h-full duration-200 z-10">
 
 
                                                 <p className="font-light text-sm overflow-hidden">  {item.message.replace(/(<([^>]+)>)/gi, "").slice(0, 160).concat('...')}  </p>
@@ -101,14 +101,25 @@ const News = () => {
                                                 <div className="font-light text-sm flex flex-col md:flex-row md:justify-between md:items-center"> {moment(item.created_time).format('LL')}
 
                                                     <Link href={item.permalink_url}>
-                                                        <a target="_blank" rel="noopener noreferrer">
+                                                        <a aria-label="news" target="_blank" rel="noopener noreferrer">
                                                             <button className="w-fit my-1 px-2 py-1 border-[1px] border-white text-xs md:text-sm">อ่านเพิ่มเติม</button>
                                                         </a>
                                                     </Link>
                                                 </div>
                                             </div>
 
-                                            <img src={item.full_picture} alt="feed1" className="object-cover w-full h-full object-top" />
+                                            <div className="w-full h-full absolute">
+                                                <Image
+                                                    src={item.full_picture}
+                                                    alt="feed"
+                                                    layout="fill"
+                                                    objectFit="cover"
+                                                    objectPosition="top"
+                                                />
+
+                                                {/* <img src={item.full_picture} alt="feed1" className="object-cover w-full h-full object-top" /> */}
+                                            </div>
+
                                         </div>
                                     )
                                 }
@@ -137,7 +148,7 @@ const News = () => {
                                                         {moment(item.created_time).format('LL')}
                                                     </p>
                                                     <Link href={item.permalink_url}>
-                                                        <a target="_blank" rel="noopener noreferrer">
+                                                        <a aria-label="news" target="_blank" rel="noopener noreferrer">
                                                             <button className="w-fit border-2 border-black px-2">อ่านเพิ่มเติม</button>
                                                         </a>
                                                     </Link>
